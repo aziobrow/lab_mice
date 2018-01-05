@@ -1,0 +1,32 @@
+<%= javascript_include_tag "application" %>
+
+
+    <div id="tabs-4">
+      <form class="delete-form form-group">
+        <input type="text" name="delete-id" placeholder="ID of post to delete" class="form-control">
+        <input type="submit" class="btn btn-danger">
+      </form>
+    </div>
+
+<script>
+
+$(document).ready(function(){
+  var getPosts = function() {
+    return $.ajax({
+      url: API + '/api/v1/posts',
+      method: 'GET',
+    }).done(function(data){
+      for (var i = 0; i < data.length; i++) {
+        $('#latest-posts').append('<p class="post">' + data[i].description + '</p>');
+      }
+    }).fail(function(error){
+      console.error(error);
+    });
+  };
+
+  // on page load
+  getPosts();
+});
+
+  $("#tabs-4").on('click', getMice);
+</script>
