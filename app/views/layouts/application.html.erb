@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LabMice</title>
-    <%= csrf_meta_tags %>
 
+  <head>
+    <title>LabMiceTracker</title>
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <header>
+      <h1>Knoebel Institute for Healthy Aging</h1>
+    </header>
+
+    <%= render 'nav' %>
+
+    <% flash.each do |type, message| %>
+      <%= render 'flash_message', type: type, message: message %>
+    <% end %>
+
     <%= yield %>
+    
   </body>
 </html>
