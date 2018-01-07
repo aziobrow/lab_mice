@@ -17,10 +17,10 @@
     <%= render 'nav' %>
 
     <% flash.each do |type, message| %>
-      <%= render 'flash_message', type: type, message: message %>
+      <%= content_tag :div, message, class: type %>
     <% end %>
 
     <%= yield %>
-    
+
   </body>
 </html>
