@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 20180107202009) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tracked_mice", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "mouse_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mouse_id"], name: "index_tracked_mice_on_mouse_id"
-    t.index ["user_id"], name: "index_tracked_mice_on_user_id"
-  end
-
   create_table "tracked_subjects", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "mouse_id"
@@ -62,8 +53,6 @@ ActiveRecord::Schema.define(version: 20180107202009) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "tracked_mice", "mice"
-  add_foreign_key "tracked_mice", "users"
   add_foreign_key "tracked_subjects", "mice"
   add_foreign_key "tracked_subjects", "users"
 end
