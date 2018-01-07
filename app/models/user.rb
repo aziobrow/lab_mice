@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :tracked_subjects
+  has_many :mice, through: :tracked_subjects
 
   def self.google_omniauth(auth)
     user = User.find_or_create_by(uid: auth['uid'])
