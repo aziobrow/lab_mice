@@ -1,27 +1,33 @@
 <h2>Create an Account</h2>
+
+<%= link_to 'Create Account Using Google', '/auth/google_oauth2' %>
 <br />
     <%= form_for @user do |f| %>
     <div class="form-group">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.label :first_name, 'First Name' %><br />
+      <%= f.text_field :first_name, placeholder: "first name" %>
     </div>
+      </br>
     <div class="form-group">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, placeholder: "First Name" %>
+      <%= f.label :last_name, 'Last Name' %><br />
+      <%= f.text_field :last_name, placeholder: "last name" %>
     </div>
+      </br>
     <div class="form-group">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, placeholder: "password" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation, "Confirm password" %><br />
-      <%= f.password_field :password_confirmation, placeholder: "password" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %><br />
+      <%= f.label :email, 'Email' %><br />
       <%= f.email_field :email, placeholder: "email address" %>
     </div>
-    <br />
+      </br>
+    <div class="form-group">
+      <%= f.label :password, 'Password' %><br />
+      <%= f.password_field :password, placeholder: "password" %>
+    </div>
+      </br>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirm Password" %><br />
+      <%= f.password_field :password_confirmation, placeholder: "retype password" %>
+    </div>
+      </br>
     <%= f.submit 'Create Account', class: "btn btn-success" %>
     <br />
     <br />
