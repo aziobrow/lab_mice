@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tracked_subject do
-    user nil
-    mouse nil
+    user
+    mouse
   end
 end
