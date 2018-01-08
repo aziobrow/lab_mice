@@ -36,6 +36,9 @@ describe "as an authenticated user" do
   end
 
   it "I can see a form to add a new note" do
-    
+    expect(page).to have_content("Add a Note")
+    expect(page).to have_content("Your Note")
+    expect(page).to have_css("#note_content")
+    expect(page).to have_button("Add Note")
   end
 end
