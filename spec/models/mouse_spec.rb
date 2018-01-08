@@ -13,5 +13,10 @@ RSpec.describe Mouse, type: :model do
       expect(mouse).to respond_to(:users)
     end
 
+    it "has many notes" do
+      mouse = create(:mouse)
+      expect(mouse).to respond_to(:notes)
+    end
+
   end
 end

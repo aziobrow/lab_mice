@@ -13,6 +13,11 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:mice)
     end
 
+    it "has many notes" do
+      user = create(:user)
+      expect(user).to respond_to(:notes)
+    end
+
   end
 
   describe "class methods" do
@@ -36,7 +41,7 @@ RSpec.describe User, type: :model do
 
       User.google_omniauth(auth_hash)
       user = User.last
-      # works in dev but not in this test--user.save is failing
+
       expect(User.all.count).to eq(1)
       expect(user.first_name).to eq("Test")
       expect(user.last_name).to eq("Test")

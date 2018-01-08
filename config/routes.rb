@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   controller :sessions do
     get '/login' => :new
     post '/login' => :create
