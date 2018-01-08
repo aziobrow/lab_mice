@@ -33,5 +33,8 @@ Rails.application.routes.draw do
 
   resources :mice, only: [:index, :show]
 
+  resources :notes, only: [:create]
+
   resources :tracked_subjects, only: [:create, :destroy]
+
 end

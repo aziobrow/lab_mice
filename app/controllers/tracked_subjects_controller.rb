@@ -12,7 +12,7 @@ class TrackedSubjectsController < ApplicationController
   end
 
   def destroy
-    subject = TrackedSubject.find(params[:id])
+    subject = TrackedSubject.where("user = ? AND mouse = ?", current_user, @mouse )
     subject.destroy
     flash[:success] = "Mouse ##{subject.mouse.original_id} succesfully untracked"
     redirect_back(fallback_location: user_dashboard_path(current_user))
