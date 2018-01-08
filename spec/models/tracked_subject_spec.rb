@@ -12,5 +12,10 @@ RSpec.describe TrackedSubject, type: :model do
       subject = create(:tracked_subject)
       expect(subject).to respond_to(:mouse)
     end
+
+    it "has many notes" do
+      subject = create(:tracked_subject)
+      expect(subject).to respond_to(:notes)
+    end
   end
 end

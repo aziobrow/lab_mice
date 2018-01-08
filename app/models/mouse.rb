@@ -1,6 +1,7 @@
 class Mouse < ApplicationRecord
   has_many :tracked_subjects, :dependent => :delete_all
   has_many :users, through: :tracked_subjects
+  has_many :notes
 
   enum status: ['live', 'harvested']
   enum sex: ['male', 'female']
