@@ -8,11 +8,13 @@ Rails.application.routes.draw do
         get '/mice/all' => :index, as: 'mice'
         get '/mouse/:original_id' => :show, as: 'mouse'
       end
+
       namespace :mice do
         controller :search do
           get '/find' => :index
         end
       end
+
     end
   end
 
@@ -30,4 +32,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :mice, only: [:index, :show]
 end

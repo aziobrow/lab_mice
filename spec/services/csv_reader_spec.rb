@@ -78,7 +78,7 @@ describe CSVReader do
     expect(mouse.protein_ug_per_ml).to eq(nil)
     expect(mouse.diet).to eq("rapamycin")
     expect(mouse.color).to eq("agouti")
-    expect(mouse.sex).to eq(0)
+    expect(mouse.sex).to eq("male")
     expect(mouse.date_of_birth).to eq("6/19/2011")
     expect(mouse.experiment_start_date).to eq("10/17/2011")
     expect(mouse.harvest_date).to eq("12/20/2011")

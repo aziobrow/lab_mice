@@ -1,0 +1,7 @@
+<h1>All Mice</h1>
+
+<% @mice.each do |mouse| %>
+  <ul>
+    <li class="mouse"><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %></li>
+  </ul>
+<% end %>
