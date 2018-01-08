@@ -13,7 +13,7 @@
 <script>
 
 const getMiceData =  async () => {
-  const initialFetch = await fetch('api/v1/all')
+  const initialFetch = await fetch('api/v1/mice/all')
   const results = await initialFetch.json()
   return getAllMiceIds(results)
 }
