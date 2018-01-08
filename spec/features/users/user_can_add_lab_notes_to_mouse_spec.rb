@@ -16,14 +16,13 @@ describe "as an authenticated user" do
     expect(page).to have_content("by #{user.first_name} #{user.last_name}")
   end
 
-  it "and other users can see my notes" do
+  it "other users can see my notes" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit mouse_path(mouse.original_id)
 
     fill_in "note[content]", with: "Testing"
     click_on("Add Note")
-
-    click_on("Logout")
+    click_link("Logout")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alt_user)
     visit mouse_path(mouse.original_id)
