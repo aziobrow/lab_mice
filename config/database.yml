@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: lab_mice_production
-  username: lab_mice
-  password: <%= ENV['LAB_MICE_DATABASE_PASSWORD'] %>
