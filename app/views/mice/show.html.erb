@@ -14,3 +14,5 @@
   <li>Weight(g): <%= @mouse.weight_in_grams %></li>
   <li>Status: <%= @mouse.status %></li>
 </ul>
+
+<%= link_to "Track Subject", tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
