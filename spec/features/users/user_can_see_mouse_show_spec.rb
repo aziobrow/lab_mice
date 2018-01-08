@@ -1,8 +1,16 @@
-describe "as an authenticated user" do
-  it "I can see details for a single mouse" do
-    mouse = create(:mouse)
-    visit mouse_path(mouse.original_id)
+require 'rails_helper'
 
+describe "as an authenticated user" do
+  let(:mouse)  { create(:mouse) }
+  let(:user)  { create(:user) }
+  let(:note)  { create(:note, mouse: mouse)}
+
+  before do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit mouse_path(mouse.original_id)
+  end
+
+  it "I can see details for a single mouse" do
     expect(page).to have_content("Mouse ##{mouse.original_id}")
     expect(page).to have_content("Trisomic: #{mouse.trisomic}")
     expect(page).to have_content("Protein(ug/ml): #{mouse.protein_ug_per_ml}")
@@ -16,5 +24,18 @@ describe "as an authenticated user" do
     expect(page).to have_content("Harvest Brain Temperature Read: #{mouse.harvest_brain_temp}")
     expect(page).to have_content("Weight(g): #{mouse.weight_in_grams}")
     expect(page).to have_content("Status: #{mouse.status}")
+  end
+
+  it "I can see notes for this mouse" do
+    #works in dev but not test
+    expect(page).to have_content("Lab Notes (1)")
+    expect(page).to have_content("#{note.content}")
+    expect(page).to have_content("#{note.user.first_name}")
+    expect(page).to have_content("#{note.user.last_name}")
+    expect(page).to have_content("Note added on")
+  end
+
+  it "I can see a form to add a new note" do
+    
   end
 end

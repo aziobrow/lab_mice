@@ -1,10 +1,10 @@
 <h1>Mouse #<%= @mouse.original_id %>
   </br>
-  
-<% if current_user.tracked_subjects.exists?(@mouse.original_id) %>
-<%= link_to "Untrack", tracked_subject_path(original_id: @mouse.original_id) %>
+
+<% if current_user.tracked_subjects.exists?(mouse: @mouse) %>
+  <%= link_to "Untrack", tracked_subject_path(original_id: @mouse.original_id), method: :delete %>
 <% else %>
-<%= link_to "Track Subject", tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
+  <%= link_to "Track Subject", tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
 <% end %>
 
 <ul>

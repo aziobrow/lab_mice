@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     delete '/logout' => :destroy
   end
 
+  controller :tracked_subjects do
+    post '/tracked_subjects' => :create
+    delete '/tracked_subjects/:original_id' => :destroy, as: 'tracked_subject'
+  end
+
   controller :dashboard do
     get '/dashboard' => :show, as: 'user_dashboard'
   end
@@ -34,7 +39,5 @@ Rails.application.routes.draw do
   resources :mice, only: [:index, :show]
 
   resources :notes, only: [:create]
-
-  resources :tracked_subjects, only: [:create, :destroy]
 
 end

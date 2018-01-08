@@ -27,9 +27,24 @@ describe "as an authenticated user" do
     visit user_dashboard_path
     click_on "Untrack"
 
-    #behaves correctly in dev. WHY??
     expect(current_path).to eq(user_dashboard_path)
     expect(page).to have_content("Mouse ##{tracked_mouse.original_id} succesfully untracked")
+  end
+
+  it "I can untrack a mouse from a mouse show page" do
+    visit mouse_path(tracked_mouse.original_id)
+    click_on "Track Subject"
+
+    expect(current_path).to eq(mouse_path(tracked_mouse.original_id))
+    expect(page).to have_content("Untrack")
+
+    click_on("Untrack")
+
+    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} succesfully untracked")
+    expect(page).to have_content("Track Subject")
+
+    visit user_dashboard_path
+
     expect(page).to_not have_css(".mouse")
   end
 end

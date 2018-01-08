@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "as an authenticated user" do
+  let(:user)  { create(:user) }
+
+  before do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
+  
   it "I can see a list of all mice by original id" do
     create_list(:mouse, 3)
     visit mice_path

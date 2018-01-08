@@ -2,7 +2,7 @@
 <% @user.tracked_subjects.each do |subject| %>
   <ul>
     <li class="mouse"><%= link_to "Mouse ##{subject.mouse.original_id}", mouse_path(subject.mouse.original_id) %></li>
-    <%= link_to "Untrack", tracked_subject_path(subject.id), method: :delete %></li>
+    <%= link_to "Untrack", tracked_subject_path(original_id: subject.mouse.original_id), method: :delete %></li>
   </ul>
 <% end %>
 </br>
