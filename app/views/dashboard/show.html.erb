@@ -7,82 +7,46 @@
 <% end %>
 </br>
 
-<canvas id="myChart" width="50" height="50"></canvas>
-<button class="test" type="button">Click Me!</button>
+Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "Trisomic", "Disomic"]) %>
+Diet <%= select_tag 'diet', options_for_select(["N/A", "Rapamycin", "Control"]) %>
+
+<%= submit_tag "Search", {:class => 'query'} %>
+
+<canvas id="myChart" width="1600" height="900"></canvas>
 
 <script>
+// can i do two query calls on click?
+// why isn't jquery working?
 
-const getMiceData =  async () => {
-  const initialFetch = await fetch('api/v1/mice/all')
-  const results = await initialFetch.json()
-  return getAllMiceIds(results)
-}
+  $('.query').on("click", getQueryMice)
 
-$(document).ready(function() {
+  var API = "http://localhost:3000";
 
-  getMiceData()
-  .then(ids => {
-    testFunction(ids)
-  })
-})
-
-function getMouseId(mouse) {
-  return mouse.id
-}
-
-function getAllMiceIds(mice) {
-  return mice.map(getMouseId)
-}
-
-function miceData() {
-  return fetch('api/v1/all')
-  .then(function(response)  {
-    return response.json()
-  })
-  .then(function(mice)  {
-    return getAllMiceIds(mice)
-  })
-}
+  function getQueryMice()  {
+    var ploidy = $('.ploidy option:selected').text();
+    var diet = $('.diet option:selected').text();
+    console.log(ploidy)
+    console.log(diet)
+    fetch(`${API}/api/v1/mice/find?trisomic=${ploidy}&diet=${diet}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
 
 
-var ctx = document.getElementById("myChart").getContext('2d');
-function testFunction(arrayOfIds) {
-  return new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [{
-              label: '# of Votes',
-              data: arrayOfIds,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      }
+
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [1,2,3],
+      datasets: [
+        {
+          data: [1,2,3]
+        }
+      ]
+    }
   });
-}
+
+
 
 </script>
