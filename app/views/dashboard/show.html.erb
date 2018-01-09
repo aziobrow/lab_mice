@@ -7,8 +7,8 @@
 <% end %>
 </br>
 
-Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "Trisomic", "Disomic"]) %>
-Diet <%= select_tag 'diet', options_for_select(["N/A", "Rapamycin", "Control"]) %>
+Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "true", "false"]) %>
+Diet <%= select_tag 'diet', options_for_select(["N/A", "rapamycin", "control"]) %>
 
 <%= submit_tag "Search", {:class => 'query'} %>
 
@@ -23,8 +23,8 @@ Diet <%= select_tag 'diet', options_for_select(["N/A", "Rapamycin", "Control"]) 
   var API = "http://localhost:3000";
 
   function getQueryMice()  {
-    var ploidy = $('.ploidy option:selected').text();
-    var diet = $('.diet option:selected').text();
+    var ploidy = $('#ploidy option:selected').text();
+    var diet = $('#diet option:selected').text();
     console.log(ploidy)
     console.log(diet)
     fetch(`${API}/api/v1/mice/find?trisomic=${ploidy}&diet=${diet}`)
