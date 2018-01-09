@@ -7,6 +7,13 @@
 <% end %>
 </br>
 
+<h5>Group 1<h5>
+Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "true", "false"]) %>
+Diet <%= select_tag 'diet', options_for_select(["N/A", "rapamycin", "control"]) %>
+
+<%= submit_tag "Search", {:class => 'query'} %>
+
+<h5>Group 2<h5>
 Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "true", "false"]) %>
 Diet <%= select_tag 'diet', options_for_select(["N/A", "rapamycin", "control"]) %>
 

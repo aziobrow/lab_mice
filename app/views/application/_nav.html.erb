@@ -1,27 +1,29 @@
 <% if logged_in? %>
-  <ul class= 'nav-bar'>
-    <li class= 'nav-bar-item'><%= link_to "My Subjects", user_dashboard_path %></li>
-    <li class= 'nav-bar-item'><%= link_to "All Mice", mice_path %></li>
-    <li class="nav-bar-item">
-      <ul class="dropdown-menu">
-        <li><%= current_user.first_name %> <%= current_user.last_name %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to "My Profile", root_path %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul class="nav-bar-item">
-    <%= form_tag :search, method: :get do %>
-      <div class="form-group search-field">
-        <%= text_field_tag :search, "Search by mouse id" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+  <div class= 'nav-bar'>
+    <%= image_tag('knoebel_logo.png', size: "150x70", class: 'nav-bar-item') %>
+    <div class='nav-bar-item'><%= link_to "My Subjects", user_dashboard_path %></div>
+    <div class='nav-bar-item'><%= link_to "All Mice", mice_path %></div>
+    <div class="nav-bar-item">
+      <%= form_tag :search, method: :get do %>
+        <div class="form-group search-field">
+          <%= text_field_tag :search, "Search by mouse id" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <div class='nav-bar-item'>
+      <div class="dropdown">
+        <button class="dropbtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
+        <div class="dropdown-content">
+          <%= link_to "My Profile", root_path %></a>
+          <%= link_to "Logout", logout_path, method: :delete %>
+        </div>
       </div>
-    <% end %>
-  </ul>
+    </div>
+</div>
 
 <% else %>
   <%= link_to 'Login', login_path %>
 <% end %>
+
+<div class='spacer'></div>
