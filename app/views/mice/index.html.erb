@@ -1,7 +1,8 @@
 <h1>All Mice</h1>
 
-<% @mice.each do |mouse| %>
-  <ul>
-    <li class="mouse"><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %></li>
-  </ul>
-<% end %>
+<div class='mouse-house'>
+  <% @mice.each do |mouse| %>
+    <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %></div>
+    <div class='favorite-mouse-icon'><%= image_tag('favorite_mouse_icon.svg') %></div>
+  <% end %>
+</div>

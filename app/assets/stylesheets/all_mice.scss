@@ -1,0 +1,14 @@
+.mouse-house  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.index-mouse  {
+  list-style-type: none;
+  height: 50px;
+  width: 50px;
+  border: solid 2px pink;
+  padding: 7px;
+  margin: 7px;
+}
