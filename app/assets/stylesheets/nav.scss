@@ -1,0 +1,25 @@
+$roboto: 'Roboto Condensed', sans-serif;
+$roboto_slab: 'Roboto Slab', serif;
+$blue_charcoal: #376996;
+$eden: #124559;
+$smalt_blue: #598392;
+$spring_rain: #AEC3B0;
+$frost: #EFF6E0;
+
+html{
+  background-color: $eden;
+}
+ul.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $roboto;
+}
+
+li.nav-bar-item {
+  float: left;
+}

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "as an authenticated user" do
   let(:mouse)  { create(:mouse) }
   let(:user)  { create(:user) }
-  let(:note)  { create(:note, mouse: mouse)}
+  let!(:note)  { create(:note, mouse: mouse)}
 
   before do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
