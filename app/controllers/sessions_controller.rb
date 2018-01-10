@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
     if request.env['omniauth.auth']
       user = User.google_omniauth(request.env['omniauth.auth'])
       session[:user_id] = user.id
-      flash[:success] = "Hi, #{user.first_name}!"
+      flash[:welcome] = "Hi, #{user.first_name}!"
       redirect_to user_dashboard_path
     elsif params[:session]
       user = User.find_by(email: params[:session][:email])
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
-        flash[:success] = "Hi, #{user.first_name}!"
+        flash[:welcome] = "Hi, #{user.first_name}!"
         redirect_to user_dashboard_path
       else
         flash[:error] = "Username or password does not exist. Please sign up for an account."

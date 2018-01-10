@@ -10,6 +10,10 @@
     font-weight: bold;
     font-family: $roboto_slab;
   }
+
+  h3  {
+    margin-top: 75px;
+  }
 }
 
 #left {
@@ -22,11 +26,4 @@
     padding: 0;
     margin: 0;
   }
-}
-
-#right  {
-  float: right;
-  width: 50%;
-  text-align: center;
-
 }

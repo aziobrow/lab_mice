@@ -1,0 +1,35 @@
+#right  {
+  float: right;
+  width: 50%;
+  text-align: center;
+
+  .note {
+    width: 90%;
+    padding-left: 25px;
+  }
+
+  textarea {
+    border-radius: 5px;
+    width: 60%;
+    height: 200px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .note-content {
+    font-family: $roboto;
+    font-size: 16px;
+  }
+
+  .note-details {
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: bold;
+    color: $roof_terracotta;
+  }
+
+  .card-button  {
+    margin-top: 10px;
+  }
+
+}

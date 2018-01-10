@@ -1,5 +1,22 @@
 <h1 class='card-title'>All Mice</h1>
 
+<div class="filter-selections">
+  Diet
+  <%= form_tag :filter, method: :get do %>
+    <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
+    <%= check_box_tag 'diet', 'rapamycin', class: 'check-opt' %>
+    <%= label_tag 'Control', nil, class: 'check-label' %>
+    <%= check_box_tag 'diet', 'control', class: 'check-opt' %>
+
+  Ploidy
+    <%= label_tag 'Trisomic', nil, class: 'check-label' %>
+    <%= check_box_tag 'trisomic', 'true', class: 'check-opt' %>
+    <%= label_tag 'Disomic', nil, class: 'check-label' %>
+    <%= check_box_tag 'trisomic', 'false', class: 'check-opt' %>
+    <%= submit_tag "Filter Mice", class: "card-button" %>
+  <% end %>
+</div>
+
 <div class='mouse-house'>
   <% @mice.each do |mouse| %>
     <% if mouse.users.include?(current_user) %>

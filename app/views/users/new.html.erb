@@ -8,9 +8,11 @@
         <%= f.email_field :email, placeholder: "Email Address" %></br></br>
         <%= f.password_field :password, placeholder: "Password" %></br></br>
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></br></br>
-        <%= f.submit 'Create Account' %></br></br>
-        Already have an account?</br>
-        <%= link_to 'Login', login_path, class: 'card-button' %>
+        <%= f.submit 'Create Account', class: 'card-button' %></br></br>
+        <p class='card-directive'>
+          Already have an account?</br>
+          <%= link_to 'Login', login_path %>
+        </p>
       <% end %>
     </div>
   </div></br>

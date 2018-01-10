@@ -1,0 +1,12 @@
+<h1 class='card-title'>My Subjects</h1>
+
+<div class='mouse-house'>
+  <% @user.tracked_subjects.each do |subject| %>
+    <% if subject.user == current_user %>
+      <div class='favorite-mouse'><%= link_to "#{subject.mouse.original_id}", mouse_path(subject.mouse.original_id) %>
+        <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
+        <%= link_to "Untrack", tracked_subject_path(original_id: subject.mouse.original_id), method: :delete, class: 'untrack-link' %></li>
+      </div>
+    <% end %>
+  <% end %>
+</div>

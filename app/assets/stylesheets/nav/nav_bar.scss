@@ -12,12 +12,13 @@ body { margin: 0; }
   align-items: center;
   justify-content: space-between;
   background-color: $roof_terracotta;
+
 }
 
 .nav-bar-item {
   display: inline-block;
   font-family: $roboto_slab;
-  font-size: 16px;
+  font-size: 20px;
 
   a:link {
     text-decoration: none;
@@ -37,9 +38,8 @@ body { margin: 0; }
   height: 60%;
   border-radius: 5px;
   font-family: $roboto;
-  padding-top: 1px;
+  padding-top: 4px;
 }
-
 
 #nav-image  {
   padding-left: 20px;

@@ -1,7 +1,9 @@
-<p class= 'note-content'>
-  <%= note.content %><br></p>
-<p class= 'note-details'>
-  <%= note.created_at.strftime("Note added on %m/%d/%Y, %I:%M%P") %>
-  by
-  <%= note.user.first_name%> <%= note.user.last_name %>
-</p>
+<div class='note'>
+  <p class= 'note-content'>
+    <%= note.content %><br></p>
+  <p class= 'note-details'>
+    <%= note.created_at.strftime("Note added on %m/%d/%Y, %I:%M%P") %>
+    by
+    <%= note.user.first_name%> <%= note.user.last_name %>
+  </p><hr>
+</div>

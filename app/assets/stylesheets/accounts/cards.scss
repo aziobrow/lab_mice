@@ -8,7 +8,7 @@
   margin-top: 50px;
   margin-bottom: 50px;
   padding-bottom: 20px;
-  border: 2px solid pink;
+  border: 2px solid $roof_terracotta;
   width: 45%;
   background-color: $cararra;
 }
@@ -24,6 +24,11 @@
     background-color: $white;
     font-family: $roboto;
   }
+
+  a:link  {
+    text-decoration: none;
+    font-family: $roboto;
+  }
 }
 
 .card-button  {
@@ -33,6 +38,9 @@
   font-weight: bold;
   border-radius: 5px;
   padding: 10px;
+  border: 1px solid $black;
+  color: $white;
+
 }
 
 .card-title  {
@@ -47,4 +55,8 @@
 .card-directive {
   font-family: $roboto;
   margin: 0px;
+
+  a:link  {
+    color: $roof_terracotta;
+  }
 }

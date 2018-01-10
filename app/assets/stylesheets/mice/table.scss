@@ -12,15 +12,18 @@ table {
     margin-left: 16px;
     margin-right: 16px;
     margin: auto;
+    margin-bottom: 30px;
 }
 
 th {
     height: 40px;
     margin-left: 16px;
     margin-right: 16px;
-    font-family: $roboto_slab;
+    font-family: sans-serif;
+    background-color: $oslo_gray;
 }
 
 td  {
-  font-family: $roboto
+  font-family: $roboto;
+  background-color: $cararra;
 }
