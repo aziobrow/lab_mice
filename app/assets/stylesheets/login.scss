@@ -1,28 +1,51 @@
+.login  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-#customBtn {
-  display: inline-block;
+.login-card {
+  margin-top: 50px;
+  padding-bottom: 20px;
+  border: 2px solid pink;
+  width: 30%;
+  box-shadow: 10px 10px 8px $oslo_gray;
+}
+
+.login-title  {
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+
+.google-button {
   background: white;
-  color: #444;
-  width: 220px;
+  display: inline-flex;
   border-radius: 5px;
   border: thin solid #888;
   box-shadow: 1px 1px 1px grey;
-  white-space: nowrap;
+  padding-right: 5px;
+
+  a:link  {
+    text-decoration: none;
+    color: $black;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
 }
 
-span.icon {
-  background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+.google-logo {
   display: inline-block;
-  vertical-align: middle;
-  width: 42px;
-  height: 42px;
+  padding: 5px 5px 5px 5px;
 }
 
-span.buttonText {
+.button-text {
   display: inline-block;
-  vertical-align: middle;
-  padding-left: 42px;
-  padding-right: 42px;
+  padding: 6px 5px 5px 5px;
   font-size: 14px;
   font-weight: bold;
 }
