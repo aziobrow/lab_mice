@@ -1,18 +1,26 @@
-.mice-index-header {
-  text-align: center;
-}
-
 .mouse-house  {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  a:link  {
+    font-family: $roboto;
+    text-decoration: none;
+    color: $black;
+  }
+
+  a:visited {
+    font-family: $roboto;
+    text-decoration: none;
+    color: $black;
+  }
 }
 
 .index-mouse  {
   list-style-type: none;
   height: 50px;
   width: 50px;
-  border: solid 2px pink;
+  border: solid 2px $roof_terracotta;
   padding: 7px;
   margin: 7px;
   display: flex;
@@ -20,6 +28,22 @@
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  background-color: $cararra;
+}
+
+.favorite-mouse {
+  list-style-type: none;
+  height: 50px;
+  width: 50px;
+  border: solid 2px $roof_terracotta;
+  padding: 7px;
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: $oslo_gray;
 }
 
 .favorite_mouse_icon  {

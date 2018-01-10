@@ -1,9 +1,15 @@
-<h1 class='mice-index-header'>All Mice</h1>
+<h1 class='card-title'>All Mice</h1>
 
 <div class='mouse-house'>
   <% @mice.each do |mouse| %>
-    <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
-      <%= image_tag('favorite_mouse_icon.png', size: "25x25", class: 'favorite_mouse_icon') %>
-    </div>
+    <% if mouse.users.include?(current_user) %>
+      <div class='favorite-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+        <%= image_tag('favorite_mouse_icon.png', size: "25x25", class: 'favorite_mouse_icon') %>
+      </div>
+    <% else %>
+      <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+        <%= image_tag('favorite_mouse_icon.png', size: "25x25", class: 'favorite_mouse_icon') %>
+      </div>
+    <% end %>
   <% end %>
 </div>
