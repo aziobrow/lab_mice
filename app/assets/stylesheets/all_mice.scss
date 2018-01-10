@@ -1,3 +1,7 @@
+.mice-index-header {
+  text-align: center;
+}
+
 .mouse-house  {
   display: flex;
   flex-direction: row;
@@ -11,4 +15,13 @@
   border: solid 2px pink;
   padding: 7px;
   margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.favorite_mouse_icon  {
+  margin-top: 4px;
 }

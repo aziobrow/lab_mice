@@ -1,3 +1,12 @@
+$roof_terracotta: #A11C2E;
+$oslo_gray: #909193;
+$cararra: #ECEBE8;
+$black: #000000;
+$white: #FFFFFF;
+
 @import 'nav';
 @import 'dropdown';
-@import 'all_mice'
+@import 'all_mice';
+@import 'welcome';
+@import 'login';
+@import 'new_account'

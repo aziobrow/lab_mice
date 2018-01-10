@@ -1,0 +1,16 @@
+.new-account  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-account-card {
+  margin-top: 50px;
+  padding-bottom: 20px;
+  border: 2px solid pink;
+  width: 30%;
+  box-shadow: 10px 10px 8px $oslo_gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
