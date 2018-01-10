@@ -1,27 +1,61 @@
-<h1>Mouse #<%= @mouse.original_id %>
-  </br>
+<h1 class='card-title'>Mouse #<%= @mouse.original_id %></br>
+  <% if @mouse.users.include?(current_user) %>
+  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @mouse.original_id), method: :delete %>
+  <% else %>
+  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
+  <% end %>
+</h1>
 
-<% if current_user.tracked_subjects.exists?(mouse: @mouse) %>
-  <%= link_to "Untrack", tracked_subject_path(original_id: @mouse.original_id), method: :delete %>
-<% else %>
-  <%= link_to "Track Subject", tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
-<% end %>
+<div id="container" >
+  <div id="left" ><h2>Attributes</h2>
+    <table>
+      <th> Status </th>
+      <th> Group </th>
+      <th> Trisomic </th>
+      <th> Diet </th>
+      <th> Protein(ug/ml) </th>
+      <th> Color </th>
+      <th> Sex </th>
+      <th> Date of Birth </th>
+      <th> Experiment Start Date </th>
+      <th> Harvest Date </th>
+      <th> Weight(g) </th>
+      <th> Record Last Updated </th>
+    <tr>
+      <td><%= @mouse.status.titleize %></td>
+      <td><%= @mouse.group_number %></td>
+      <td><%= @mouse.trisomic %></td>
+      <td><%= @mouse.diet.titleize %></td>
+      <td><%=@mouse.protein_ug_per_ml %></td>
+      <td><%= @mouse.color.titleize %></td>
+      <td><%= @mouse.sex.titleize %></td>
+      <td><%= @mouse.date_of_birth %></td>
+      <td><%= @mouse.experiment_start_date %></td>
+      <td><%= @mouse.harvest_date %></td>
+      <td><%= @mouse.weight_in_grams %></td>
+      <td><%= @mouse.updated_at %></td>
+    </tr>
+</table><br>
+    <ul>
+      <li>Trisomic: <%= @mouse.trisomic %></li>
+      <li>Protein(ug/ml): <%= @mouse.protein_ug_per_ml %></li>
+      <li>Diet: <%= @mouse.diet %></li>
+      <li>Color: <%= @mouse.color %></li>
+      <li>Sex: <%= @mouse.sex %></li>
+      <li>Date of Birth: <%= @mouse.date_of_birth %></li>
+      <li>Experiment Start Date: <%= @mouse.experiment_start_date %></li>
+      <li>Harvest Date: <%= @mouse.harvest_date %></li>
+      <li>Group Number: <%= @mouse.group_number %></li>
+      <li>Harvest Brain Temperature Read: <%= @mouse.harvest_brain_temp %></li>
+      <li>Weight(g): <%= @mouse.weight_in_grams %></li>
+      <li>Status: <%= @mouse.status %></li>
+    </ul>
+  </div>
 
-<ul>
-  <li>Trisomic: <%= @mouse.trisomic %></li>
-  <li>Protein(ug/ml): <%= @mouse.protein_ug_per_ml %></li>
-  <li>Diet: <%= @mouse.diet %></li>
-  <li>Color: <%= @mouse.color %></li>
-  <li>Sex: <%= @mouse.sex %></li>
-  <li>Date of Birth: <%= @mouse.date_of_birth %></li>
-  <li>Experiment Start Date: <%= @mouse.experiment_start_date %></li>
-  <li>Harvest Date: <%= @mouse.harvest_date %></li>
-  <li>Group Number: <%= @mouse.group_number %></li>
-  <li>Harvest Brain Temperature Read: <%= @mouse.harvest_brain_temp %></li>
-  <li>Weight(g): <%= @mouse.weight_in_grams %></li>
-  <li>Status: <%= @mouse.status %></li>
-</ul>
+  <div id="right">
+    <h2>Lab Notes (<%= @mouse.notes.count %>)</h2>
+      <%= render partial: 'mice/note', collection: @mouse.notes.reverse %>
+      <%= render partial: 'notes/form' %>
+  </div>
 
-<h3>Lab Notes (<%= @mouse.notes.count %>)</h3>
-  <%= render partial: 'mice/note', collection: @mouse.notes.reverse %>
-  <%= render partial: 'notes/form' %>
+</div>
