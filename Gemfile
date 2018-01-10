@@ -37,6 +37,7 @@ gem 'has_scope'
 gem 'chart-js-rails'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do

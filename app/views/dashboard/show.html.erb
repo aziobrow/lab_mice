@@ -14,20 +14,25 @@ Diet <%= select_tag 'dietTwo', options_for_select(["N/A", "rapamycin", "control"
 
 <%= submit_tag "Create Chart", {class: 'query'} %>
 
-<canvas id="myChart" width="1600" height="900"></canvas>
+<canvas id="myChartOne" width="1600" height="900"></canvas>
+<canvas id="myChartTwo" width="1600" height="900"></canvas>
 
 <script>
 
 
   $('.query').on("click", constructMouseQuery)
 
-  var API = 'https://lit-meadow-75806.herokuapp.com';
+  var API = 'http://localhost:3000/';
   var ploidyOne = null;
   var ploidyTwo = null;
   var dietOne = null;
   var dietTwo = null;
   var displayData = null;
   var graphType = null;
+  var dataGroupOne;
+  var dataGroupTwo;
+  var labelsGroupOne;
+  var labelsGroupTwo;
 
 
     $('#ploidyOne').change(function() {
@@ -63,34 +68,76 @@ Diet <%= select_tag 'dietTwo', options_for_select(["N/A", "rapamycin", "control"
     console.log(graphType)
     getGroupOneMice();
     getGroupTwoMice();
+    renderCharts();
+  }
+
+  function dataToDisplayGroupOne(array, type) {
+    var filteredData = array.filter(mouse => mouse[type])
+    var graphData = filteredData.reduce((accumulator, mouse) => {
+
+      accumulator[mouse.original_id] = mouse.weight_in_grams
+      return accumulator
+    }, {})
+      dataGroupOne = Object.values(graphData)
+      labelsGroupOne = Object.keys(graphData)
+  }
+
+  function dataToDisplayGroupTwo(array, type) {
+    var filteredData = array.filter(mouse => mouse[type])
+    var graphData = filteredData.reduce((accumulator, mouse) => {
+
+      accumulator[mouse.original_id] = mouse.weight_in_grams
+      return accumulator
+    }, {})
+      dataGroupTwo = Object.values(graphData)
+      labelsGroupTwo = Object.keys(graphData)
   }
 
   function getGroupOneMice()  {
     fetch(`${API}/api/v1/mice/find?trisomic=${ploidyOne}&diet=${dietOne}`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dataToDisplayGroupOne(data, 'weight_in_grams')
+      })
   }
 
   function getGroupTwoMice()  {
     fetch(`${API}/api/v1/mice/find?trisomic=${ploidyTwo}&diet=${dietTwo}`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dataToDisplayGroupTwo(data, 'weight_in_grams')
+      })
   }
 
 
+  function renderCharts()  {
+    var ctxOne = document.getElementById("myChartOne");
+    var myChartOne = new Chart(ctxOne, {
+      type: 'bar',
+      data: {
+        labels: labelsGroupOne,
+        datasets: [
+          {
+            data: dataGroupOne
+          }
+        ]
+      }
+    });
 
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [1,2,3],
-      datasets: [
-        {
-          data: [1,2,3]
-        }
-      ]
-    }
-  });
+    var ctxTwo = document.getElementById("myChartTwo");
+    var myChartTwo = new Chart(ctxTwo, {
+      type: 'bar',
+      data: {
+        labels: labelsGroupTwo,
+        datasets: [
+          {
+            data: dataGroupTwo
+          }
+        ]
+      }
+    });
+  }
+
 
 
 
