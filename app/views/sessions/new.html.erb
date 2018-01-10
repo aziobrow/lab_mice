@@ -6,6 +6,10 @@
         <%= f.email_field :email, placeholder: "Email" %></br></br>
         <%= f.password_field :password, placeholder: "Password" %></br></br>
         <%= f.submit 'Login', class: 'card-button' %><br></br>
+        <div class="google-button">
+          <%= image_tag('google_logo.png', size: "20x20", class: 'google-logo') %>
+          <%= link_to("Login with Google", '/auth/google_oauth2', class: 'button-text') %>
+        </div>
         <p class='card-directive'>Not registered?</br>
           <%= link_to 'Create Account', new_user_path %>
         </p>
@@ -13,9 +17,5 @@
     </div>
   </div></br>
 
-  <div class="google-button">
-    <%= image_tag('google_logo.png', size: "20x20", class: 'google-logo') %>
-    <%= link_to("Login with Google", '/auth/google_oauth2', class: 'button-text') %>
-  </div>
 
 </div>

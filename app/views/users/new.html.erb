@@ -9,6 +9,10 @@
         <%= f.password_field :password, placeholder: "Password" %></br></br>
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></br></br>
         <%= f.submit 'Create Account', class: 'card-button' %></br></br>
+        <div class="google-button">
+          <%= image_tag('google_logo.png', size: "20x20", class: 'google-logo') %>
+          <%= link_to("Create Account with Google", '/auth/google_oauth2', class: 'button-text') %>
+        </div>
         <p class='card-directive'>
           Already have an account?</br>
           <%= link_to 'Login', login_path %>
@@ -16,10 +20,5 @@
       <% end %>
     </div>
   </div></br>
-
-  <div class="google-button">
-    <%= image_tag('google_logo.png', size: "20x20", class: 'google-logo') %>
-    <%= link_to("Login with Google", '/auth/google_oauth2', class: 'button-text') %>
-  </div>
 
 </div>
