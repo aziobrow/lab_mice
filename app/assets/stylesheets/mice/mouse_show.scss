@@ -5,6 +5,11 @@
 #container  {
   width: 100%;
   padding-top: 20px;
+
+  h2, h3  {
+    font-weight: bold;
+    font-family: $roboto_slab;
+  }
 }
 
 #left {
@@ -23,4 +28,5 @@
   float: right;
   width: 50%;
   text-align: center;
+
 }

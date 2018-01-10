@@ -1,0 +1,26 @@
+table, th, td {
+   border: 1px solid black;
+}
+
+th, td {
+    padding: 4px;
+    text-align: center;
+}
+
+table {
+    width: 75%;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin: auto;
+}
+
+th {
+    height: 40px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-family: $roboto_slab;
+}
+
+td  {
+  font-family: $roboto
+}
