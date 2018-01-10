@@ -16,6 +16,21 @@ body { margin: 0; }
 
 .nav-bar-item {
   display: inline-block;
+  font-family: $roboto_slab;
+  font-size: 16px;
+
+  a:link {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+}
+
+#nav-image  {
+  padding-left: 10px;
 }
 
 .spacer {

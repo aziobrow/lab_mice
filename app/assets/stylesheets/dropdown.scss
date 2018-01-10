@@ -1,11 +1,12 @@
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: $roof_terracotta;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     float: right;
+    font-family: $roboto_slab;
 }
 
 .dropdown {
@@ -33,8 +34,4 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
 }
