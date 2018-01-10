@@ -1,8 +1,7 @@
 class FilterController < ApplicationController
   def index
-    @mice = apply_scopes(Mouse).all
+    @mice = MousePresenter.new(query_params).mice
   end
-
 
 private
   def query_params
