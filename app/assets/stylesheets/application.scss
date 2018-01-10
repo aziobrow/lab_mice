@@ -6,9 +6,9 @@ $cararra: #ECEBE8;
 $black: #000000;
 $white: #FFFFFF;
 
-@import 'nav';
-@import 'dropdown';
+@import 'nav/nav_bar';
+@import 'nav/dropdown';
 @import 'all_mice';
-@import 'welcome';
-@import 'login';
-@import 'new_account'
+@import 'accounts/welcome';
+@import 'accounts/cards';
+@import 'accounts/google_button';
