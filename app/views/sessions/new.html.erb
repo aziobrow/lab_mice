@@ -5,9 +5,10 @@
       <%= form_for :session, url: login_path do |f| %>
         <%= f.email_field :email, placeholder: "Email" %></br></br>
         <%= f.password_field :password, placeholder: "Password" %></br></br>
-        <%= f.submit 'Login'%><br></br>
-        Not registered?</br>
-        <%= link_to 'Create Account', new_user_path %>
+        <%= f.submit 'Login', class: 'card-button' %><br></br>
+        <p class='card-directive'>Not registered?</br>
+          <%= link_to 'Create Account', new_user_path %>
+        </p>
       <% end %>
     </div>
   </div></br>

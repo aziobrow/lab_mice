@@ -1,9 +1,47 @@
+.du-logo  {
+  width: 100%;
+}
+
+#tracker-title  {
+  padding-bottom: 20px;
+}
+
+.welcome-options  {
+  a:link {
+    text-decoration: none;
+    color: white;
+    font-family: $roboto_slab;
+    font-weight: bold;
+    padding: 8px 5px 5px 5px;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .welcome-create-account {
-  float: right;
-  padding-right: 100px;
+  width: 35%;
+  border: 1px solid $black;
+  background-color: $roof_terracotta;
+  vertical-align:middle;
+  float: left;
+  text-align: center;
+  margin-left: 40px;
+  height: 30px;
+  vertical-align: middle;
+  padding-top: 20px;
 }
 
 .welcome-login  {
-  float:left;
-  padding-left: 100px;
+  width: 35%;
+  border: 1px solid $black;
+  background-color: $roof_terracotta;
+  vertical-align:middle;
+  float: right;
+  text-align: center;
+  margin-right: 40px;
+  height: 30px;
+
 }

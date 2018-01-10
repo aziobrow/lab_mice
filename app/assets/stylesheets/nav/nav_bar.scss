@@ -29,8 +29,18 @@ body { margin: 0; }
   }
 }
 
+.nav-search {
+  width: 60%;
+  text-align: center;
+  height: 60%;
+}
+
 #nav-image  {
   padding-left: 20px;
+}
+
+#nav-login  {
+  padding-right: 20px;
 }
 
 .spacer {

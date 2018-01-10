@@ -6,16 +6,45 @@
 
 .card {
   margin-top: 50px;
+  margin-bottom: 50px;
   padding-bottom: 20px;
   border: 2px solid pink;
-  width: 40%;
-  box-shadow: 10px 10px 8px $oslo_gray;
+  width: 45%;
+  background-color: $cararra;
+}
+
+.card-form  {
+  input[type="email"], input[type="password"] {
+    width: 70%;
+    padding: 5px 8px;
+    margin: 8px;
+    font-size: 20px;
+    border-radius: 5px;
+    height: 32px;
+    background-color: $white;
+    font-family: $roboto;
+  }
+}
+
+.card-button  {
+  background-color: $roof_terracotta;
+  font-family: $roboto_slab;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .card-title  {
   text-align: center;
+  font-family: $roboto_slab;
 }
 
 .card-form {
   text-align: center;
+}
+
+.card-directive {
+  font-family: $roboto;
+  margin: 0px;
 }
