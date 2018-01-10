@@ -4,6 +4,7 @@ class MiceController < ApplicationController
   end
 
   def show
-    @mouse = Mouse.find_by(original_id: params[:id])
+    mouse = Mouse.find_by(original_id: params[:id])
+    @presenter ||= MouseDataPresenter.new(mouse)
   end
 end

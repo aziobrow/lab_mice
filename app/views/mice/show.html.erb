@@ -1,8 +1,8 @@
-<h1 class='card-title'>Mouse #<%= @mouse.original_id %></br>
-  <% if @mouse.users.include?(current_user) %>
-  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @mouse.original_id), method: :delete %>
+<h1 class='card-title'>Mouse #<%= @presenter.mouse.original_id %></br>
+  <% if @presenter.mouse.users.include?(current_user) %>
+  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @presenter.mouse.original_id), method: :delete %>
   <% else %>
-  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @mouse.original_id), method: :post %>
+  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @presenter.mouse.original_id), method: :post %>
   <% end %>
 </h1>
 
@@ -11,58 +11,58 @@
     <table>
       <tr>
         <th> Status </th>
-        <td><%= @mouse.status.titleize %></td>
+        <td><%= @presenter.display_status %></td>
       </tr>
       <tr>
         <th> Group </th>
-        <td><%= @mouse.group_number %></td>
+        <td><%= @presenter.mouse.group_number %></td>
       </tr>
       <tr>
         <th> Trisomic </th>
-        <td><%= @mouse.trisomic %></td>
+        <td><%= @presenter.display_trisomic %></td>
       </tr>
       <tr>
         <th> Diet </th>
-        <td><%= @mouse.diet.titleize %></td>
+        <td><%= @presenter.display_diet %></td>
       </tr>
       <tr>
         <th> Protein(ug/ml) </th>
-        <td><%=@mouse.protein_ug_per_ml %></td>
+        <td><%=@presenter.display_protein %></td>
       </tr>
       <tr>
         <th> Color </th>
-        <td><%= @mouse.color.titleize %></td>
+        <td><%= @presenter.display_color %></td>
       </tr>
       <tr>
         <th> Sex </th>
-        <td><%= @mouse.sex.titleize %></td>
+        <td><%= @presenter.display_sex %></td>
       </tr>
       <tr>
         <th> Date of Birth </th>
-        <td><%= @mouse.date_of_birth %></td>
+        <td><%= @presenter.mouse.date_of_birth %></td>
       </tr>
       <tr>
         <th> Experiment Start Date </th>
-        <td><%= @mouse.experiment_start_date %></td>
+        <td><%= @presenter.mouse.experiment_start_date %></td>
       </tr>
       <tr>
         <th> Harvest Date </th>
-        <td><%= @mouse.harvest_date %></td>
+        <td><%= @presenter.mouse.harvest_date %></td>
       </tr>
       <tr>
         <th> Weight(g) </th>
-        <td><%= @mouse.weight_in_grams %></td>
+        <td><%= @presenter.display_weight %></td>
       </tr>
       <tr>
         <th> Record Last Updated </th>
-        <td><%= @mouse.updated_at %></td>
+        <td><%= @presenter.format_updated_timestamp %></td>
       </tr>
     </table>
   </div>
 
   <div id="right">
-    <h2>Lab Notes (<%= @mouse.notes.count %>)</h2>
-      <%= render partial: 'mice/note', collection: @mouse.notes.reverse %>
+    <h2>Lab Notes (<%= @presenter.mouse.notes.count %>)</h2>
+      <%= render partial: 'mice/note', collection: @presenter.mouse.notes.reverse %>
       <%= render partial: 'notes/form' %>
   </div>
 

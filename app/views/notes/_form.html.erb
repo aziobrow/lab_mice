@@ -1,5 +1,5 @@
 <h3>Add a Note</h3>
-  <%= form_for [@mouse, Note.new], url: notes_path(original_id: @mouse.original_id) do |f| %>
+  <%= form_for [@presenter.mouse, Note.new], url: notes_path(original_id: @presenter.mouse.original_id) do |f| %>
       <%= f.text_area :content %></br>
       <%= f.submit "Add Note", :class => 'card-button'%>
   <% end %>

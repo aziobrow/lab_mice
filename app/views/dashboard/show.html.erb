@@ -1,32 +1,78 @@
-<div class='analytics-selection-container'>
-<h5 class='card-title'>Group 1<h5>
-Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "true", "false"]) %>
-Diet <%= select_tag 'diet', options_for_select(["N/A", "rapamycin", "control"]) %>
+<h5>Group 1<h5>
+Ploidy <%= select_tag 'ploidyOne', options_for_select(["N/A", "true", "false"]) %>
+Diet <%= select_tag 'dietOne', options_for_select(["N/A", "rapamycin", "control"]) %>
 
-<%= submit_tag "Search", {:class => 'query'} %>
-</div>
 <h5>Group 2<h5>
-Ploidy <%= select_tag 'ploidy', options_for_select(["N/A", "true", "false"]) %>
-Diet <%= select_tag 'diet', options_for_select(["N/A", "rapamycin", "control"]) %>
+Ploidy <%= select_tag 'ploidyTwo', options_for_select(["N/A", "true", "false"]) %>
+Diet <%= select_tag 'dietTwo', options_for_select(["N/A", "rapamycin", "control"]) %>
 
-<%= submit_tag "Search", {:class => 'query'} %>
+<h5>Data to Display<h5>
+<%= select_tag 'display-data', options_for_select(["Protein Levels", "Harvest Brain Temperature", "Weight"]) %>
+
+<h5>Type of Graph<h5>
+<%= select_tag 'graph-type', options_for_select(["Line", "Circle", "Bar"]) %>
+
+<%= submit_tag "Create Chart", {class: 'query'} %>
 
 <canvas id="myChart" width="1600" height="900"></canvas>
 
 <script>
-// can i do two query calls on click?
-// why isn't jquery working?
 
-  $('.query').on("click", getQueryMice)
 
-  var API = "http://localhost:3000";
+  $('.query').on("click", constructMouseQuery)
 
-  function getQueryMice()  {
-    var ploidy = $('#ploidy option:selected').text();
-    var diet = $('#diet option:selected').text();
-    console.log(ploidy)
-    console.log(diet)
-    fetch(`${API}/api/v1/mice/find?trisomic=${ploidy}&diet=${diet}`)
+  var API = 'https://lit-meadow-75806.herokuapp.com';
+  var ploidyOne = null;
+  var ploidyTwo = null;
+  var dietOne = null;
+  var dietTwo = null;
+  var displayData = null;
+  var graphType = null;
+
+
+    $('#ploidyOne').change(function() {
+      ploidyOne = $('#ploidyOne option:selected').text();
+    })
+
+    $('#ploidyTwo').change(function() {
+      ploidyTwo = $('#ploidyTwo option:selected').text();
+    })
+
+    $('#dietOne').change(function() {
+      dietOne = $('#dietOne option:selected').text();
+    })
+
+    $('#dietTwo').change(function() {
+      dietTwo = $('#dietTwo option:selected').text();
+    })
+
+    $('#display-data').change(function() {
+      displayData = $('#display-data option:selected').text();
+    })
+
+    $('#graph-type').change(function() {
+      graphType = $('#graph-type option:selected').text();
+    })
+
+  function constructMouseQuery()  {
+    console.log(ploidyOne)
+    console.log(ploidyTwo)
+    console.log(dietOne)
+    console.log(dietTwo)
+    console.log(displayData)
+    console.log(graphType)
+    getGroupOneMice();
+    getGroupTwoMice();
+  }
+
+  function getGroupOneMice()  {
+    fetch(`${API}/api/v1/mice/find?trisomic=${ploidyOne}&diet=${dietOne}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
+  function getGroupTwoMice()  {
+    fetch(`${API}/api/v1/mice/find?trisomic=${ploidyTwo}&diet=${dietTwo}`)
       .then(response => response.json())
       .then(data => console.log(data))
   }
