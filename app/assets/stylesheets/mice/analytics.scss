@@ -1,0 +1,59 @@
+.chart-header-container  {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  margin-top: 50px;
+  font-family: $roboto_slab;
+
+  #group-one-header  {
+    position: relative;
+    left: 34px;
+  }
+
+  #group-two-header {
+    position: relative;
+    left: 117px;
+  }
+
+  #data-header  {
+    position: relative;
+    left: 135px;
+  }
+
+  #chart-type-header  {
+    position: relative;
+    left: 62px;
+  }
+}
+
+.chart-selection-container  {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: $roboto;
+  color: $roof_terracotta;
+
+  #ploidyOne  {
+    margin-right: 10px;
+    margin-left: 3px;
+  }
+
+  #dietOne  {
+    margin-left: 3px;
+  }
+
+  #ploidyTwo  {
+    margin-right: 10px;
+    margin-left: 3px;
+  }
+
+  #dietTwo  {
+    margin-left: 3px;
+  }
+}
+
+#query  {
+  margin-top: 25px;
+  margin-left: 570px;
+}
