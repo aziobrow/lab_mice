@@ -1,19 +1,16 @@
 <h1 class='card-title'>All Mice</h1>
 
 <div class="filter-selections">
-  Diet
   <%= form_tag :filter, method: :get do %>
+  <%= check_box_tag 'diet', 'rapamycin', false, class: 'check-opt' %>
     <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
-    <%= check_box_tag 'diet', 'rapamycin', class: 'check-opt' %>
+    <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
     <%= label_tag 'Control', nil, class: 'check-label' %>
-    <%= check_box_tag 'diet', 'control', class: 'check-opt' %>
-
-  Ploidy
+    <%= check_box_tag 'trisomic', 'true', false, class: 'check-opt' %>
     <%= label_tag 'Trisomic', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'true', class: 'check-opt' %>
-    <%= label_tag 'Disomic', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'false', class: 'check-opt' %>
-    <%= submit_tag "Filter Mice", class: "card-button" %>
+    <%= check_box_tag 'trisomic', 'false', false, class: 'check-opt' %>
+    <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
+    <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
   <% end %>
 </div>
 

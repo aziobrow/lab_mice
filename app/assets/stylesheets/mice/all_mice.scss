@@ -1,3 +1,27 @@
+.filter-selections  {
+  text-align: center;
+  font-family: $roboto;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
+
+  #filter-button  {
+    margin-top: 25px;
+  }
+
+  .check-label  {
+    padding-right: 15px;
+  }
+
+  .check-opt  {
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+  }
+
+}
+
+
 .mouse-house  {
   display: flex;
   flex-direction: row;
