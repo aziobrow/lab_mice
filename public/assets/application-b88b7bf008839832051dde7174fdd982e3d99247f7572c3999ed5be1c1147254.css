@@ -1,0 +1,567 @@
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+body {
+  margin: 0;
+}
+
+/* line 3, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #A11C2E;
+}
+
+/* line 18, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.nav-bar-item {
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  font-size: 20px;
+}
+/* line 23, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.nav-bar-item a:link {
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+}
+/* line 29, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.nav-bar-item a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+/* line 35, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.nav-search {
+  width: 60%;
+  text-align: center;
+  height: 60%;
+  border-radius: 5px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding-top: 4px;
+}
+
+/* line 44, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+#nav-image {
+  padding-left: 20px;
+}
+
+/* line 48, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+#nav-login {
+  padding-right: 20px;
+}
+
+/* line 52, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/nav_bar.scss */
+.spacer {
+  height: 75px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropbtn {
+  background-color: #A11C2E;
+  color: white;
+  font-size: 20px;
+  padding-right: 20px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* line 12, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 17, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #909193;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 52px;
+  width: 175px;
+}
+
+/* line 27, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: 1px solid black;
+  text-align: center;
+}
+
+/* line 36, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropdown-content a:hover {
+  background-color: #909193;
+}
+
+/* line 38, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/dropdown.scss */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.filter-selections {
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+/* line 8, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.filter-selections #filter-button {
+  margin-top: 25px;
+}
+/* line 12, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.filter-selections .check-label {
+  padding-right: 15px;
+}
+/* line 16, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.filter-selections .check-opt {
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
+
+/* line 25, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.mouse-house {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 50px;
+}
+/* line 32, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.mouse-house a:link {
+  font-family: "Roboto Condensed", sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+/* line 38, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.mouse-house a:visited {
+  font-family: "Roboto Condensed", sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* line 45, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.index-mouse {
+  list-style-type: none;
+  height: 100px;
+  width: 100px;
+  border: solid 2px #A11C2E;
+  padding: 7px;
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #ECEBE8;
+}
+
+/* line 60, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.favorite-mouse {
+  list-style-type: none;
+  height: 100px;
+  width: 100px;
+  border: solid 2px #A11C2E;
+  padding: 7px;
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #909193;
+}
+
+/* line 75, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/all_mice.scss */
+.favorite_mouse_icon {
+  margin-top: 16px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+.du-logo {
+  width: 100%;
+}
+
+/* line 5, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+#tracker-title {
+  padding-bottom: 20px;
+}
+
+/* line 10, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+.welcome-options a:link {
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+  padding: 8px 5px 5px 5px;
+}
+/* line 18, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+.welcome-options a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+/* line 24, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+.welcome-create-account {
+  width: 35%;
+  border: 1px solid #000000;
+  background-color: #A11C2E;
+  vertical-align: middle;
+  float: left;
+  text-align: center;
+  margin-left: 40px;
+  height: 30px;
+  vertical-align: middle;
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+/* line 38, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/welcome.scss */
+.welcome-login {
+  width: 35%;
+  border: 1px solid #000000;
+  background-color: #A11C2E;
+  vertical-align: middle;
+  float: right;
+  text-align: center;
+  margin-right: 40px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 7, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border: 2px solid #A11C2E;
+  width: 45%;
+  background-color: #ECEBE8;
+}
+
+/* line 17, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-form input[type="email"], .card-form input[type="password"] {
+  width: 70%;
+  padding: 5px 8px;
+  margin: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  height: 32px;
+  background-color: #FFFFFF;
+  font-family: "Roboto Condensed", sans-serif;
+}
+/* line 28, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-form a:link {
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* line 34, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-button {
+  background-color: #A11C2E;
+  font-family: "Roboto Slab", serif;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #000000;
+  color: #FFFFFF;
+}
+
+/* line 46, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-title {
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+}
+
+/* line 51, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-form {
+  text-align: center;
+}
+
+/* line 55, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-directive {
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+}
+/* line 59, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/cards.scss */
+.card-directive a:link {
+  color: #A11C2E;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/google_button.scss */
+.google-button {
+  background: white;
+  display: inline-flex;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  padding-right: 5px;
+  margin-bottom: 12px;
+}
+/* line 10, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/google_button.scss */
+.google-button a:link {
+  text-decoration: none;
+  color: #000000;
+}
+/* line 15, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/google_button.scss */
+.google-button a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* line 21, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/google_button.scss */
+.google-logo {
+  display: inline-block;
+  padding: 5px 5px 5px 5px;
+}
+
+/* line 26, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/google_button.scss */
+.button-text {
+  display: inline-block;
+  padding: 6px 5px 5px 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+.unfavorited {
+  padding-top: 5px;
+}
+
+/* line 5, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+#container {
+  width: 100%;
+  padding-top: 20px;
+}
+/* line 9, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+#container h2, #container h3 {
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
+/* line 14, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+#container h3 {
+  margin-top: 75px;
+}
+
+/* line 19, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+#left {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+/* line 24, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/mouse_show.scss */
+#left ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/table.scss */
+table, th, td {
+  border: 1px solid black;
+}
+
+/* line 5, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/table.scss */
+th, td {
+  padding: 4px;
+  text-align: center;
+}
+
+/* line 10, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/table.scss */
+table {
+  width: 75%;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+/* line 18, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/table.scss */
+th {
+  height: 40px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-family: sans-serif;
+  background-color: #909193;
+}
+
+/* line 26, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/table.scss */
+td {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #ECEBE8;
+}
+
+/* line 2, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/accounts/new_account.scss */
+.card-form input[type="text"] {
+  width: 70%;
+  padding: 5px 8px;
+  margin: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  height: 32px;
+  background-color: #FFFFFF;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right {
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+/* line 6, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right .note {
+  width: 90%;
+  padding-left: 25px;
+}
+/* line 11, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right textarea {
+  border-radius: 5px;
+  width: 60%;
+  height: 200px;
+  padding: 5px;
+  font-size: 16px;
+}
+/* line 19, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right .note-content {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+}
+/* line 24, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right .note-details {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #A11C2E;
+}
+/* line 31, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/notes.scss */
+#right .card-button {
+  margin-top: 10px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/my_subjects.scss */
+.untrack-link {
+  padding-top: 9px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/flash.scss */
+.success {
+  font-family: "Roboto Slab", serif;
+  padding: 5px;
+  background-color: #92B558;
+}
+
+/* line 7, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/flash.scss */
+.error {
+  font-family: "Roboto Slab", serif;
+  padding: 5px;
+  background-color: #DC4C46;
+}
+
+/* line 13, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/nav/flash.scss */
+.welcome {
+  font-family: "Roboto Slab", serif;
+  font-size: 50px;
+  padding-left: 10px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  margin-top: 50px;
+  font-family: "Roboto Slab", serif;
+}
+/* line 9, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-header-container #group-one-header {
+  position: relative;
+  left: 34px;
+}
+/* line 14, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-header-container #group-two-header {
+  position: relative;
+  left: 117px;
+}
+/* line 19, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-header-container #data-header {
+  position: relative;
+  left: 135px;
+}
+/* line 24, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-header-container #chart-type-header {
+  position: relative;
+  left: 62px;
+}
+
+/* line 30, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-selection-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #A11C2E;
+}
+/* line 37, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-selection-container #ploidyOne {
+  margin-right: 10px;
+  margin-left: 3px;
+}
+/* line 42, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-selection-container #dietOne {
+  margin-left: 3px;
+}
+/* line 46, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-selection-container #ploidyTwo {
+  margin-right: 10px;
+  margin-left: 3px;
+}
+/* line 51, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+.chart-selection-container #dietTwo {
+  margin-left: 3px;
+}
+
+/* line 56, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/analytics.scss */
+#query {
+  margin-top: 25px;
+  margin-left: 650px;
+  margin-bottom: 50px;
+}
+
+/* line 1, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/charts.scss */
+.chart-container {
+  max-width: 1050px;
+  max-height: 175px;
+}
+
+/* line 6, /Users/teacher/turing/3module/projects/lab_mice/app/assets/stylesheets/mice/charts.scss */
+#myChartOne {
+  width: 1050px;
+  height: 175px;
+  padding: 110px;
+  margin-left: 80px;
+  font-family: "Roboto Condensed", sans-serif;
+}
