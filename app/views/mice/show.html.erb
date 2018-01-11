@@ -1,8 +1,8 @@
 <h1 class='card-title'><%= @presenter.display_original_id %></br>
   <% if @presenter.mouse_is_favorite?(current_user) %>
-  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @presenter.display_original_id), method: :delete %>
+  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @presenter.mouse.original_id), method: :delete %>
   <% else %>
-  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @presenter.display_original_id), method: :post %>
+  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @presenter.mouse.original_id), method: :post %>
   <% end %>
 </h1>
 

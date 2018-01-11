@@ -16,35 +16,47 @@
   </span>
 
   <span class='data-selection'>
-    <%= select_tag 'display-data', options_for_select(["Protein Levels", "Harvest Brain Temperature", "Weight"]) %>
+    <%= select_tag 'display-data', options_for_select(["protein levels", "harvest brain temperature", "weight"]) %>
   </span>
 
   <span class='chart-selection'>
-    <%= select_tag 'graph-type', options_for_select(["Line", "Circle", "Bar"]) %>
+    <%= select_tag 'graph-type', options_for_select(["line", "radar", "bar", "polarArea", "doughnut", "pie"]) %>
   </span>
 </div>
 
 <%= submit_tag "Create Chart", id: 'query', class: 'card-button' %>
 
-<canvas id="myChartOne" width="1600" height="900"></canvas>
-<canvas id="myChartTwo" width="1600" height="900"></canvas>
+<div class='chart-container'>
+  <canvas id="myChartOne" width="1600" height="900"></canvas>
+</div>
 
 <script>
 
-  $('.query').on("click", constructMouseQuery)
+  $('#query').on("click", constructMouseQuery)
 
   var API = 'http://localhost:3000/';
-  var ploidyOne = null;
-  var ploidyTwo = null;
-  var dietOne = null;
-  var dietTwo = null;
-  var displayData = null;
-  var graphType = null;
+  var ploidyOne = "N/A";
+  var ploidyTwo = "N/A";
+  var dietOne = "N/A";
+  var dietTwo = "N/A";
+  var metricToGraph = "protein levels";
+  var graphType = "line";
   var dataGroupOne;
   var dataGroupTwo;
   var labelsGroupOne;
   var labelsGroupTwo;
+  var colors = [];
+  var chart;
 
+
+    var times = 30;
+    for(var i=0; i < times; i++){
+      colors.push(`rgb(${rand(0, 255)}, ${rand(0, 255)}, ${rand(0, 255)}`)
+    }
+
+    function rand(frm, to) {
+      return ~~(Math.random() * (to - frm)) + frm;
+    }
 
     $('#ploidyOne').change(function() {
       ploidyOne = $('#ploidyOne option:selected').text();
@@ -63,7 +75,14 @@
     })
 
     $('#display-data').change(function() {
-      displayData = $('#display-data option:selected').text();
+      var rawMetric = $('#display-data option:selected').text();
+      if (rawMetric === 'protein levels') {
+        metricToGraph = 'protein_ug_per_ml'
+      } else if (rawMetric === 'harvest brain temperature') {
+        metricToGraph = 'harvest_brain_temp'
+      } else {
+        metricToGraph = 'weight_in_grams'
+      }
     })
 
     $('#graph-type').change(function() {
@@ -71,14 +90,18 @@
     })
 
   function constructMouseQuery()  {
+    getGroupOneMice();
+    getGroupTwoMice();
     console.log(ploidyOne)
     console.log(ploidyTwo)
     console.log(dietOne)
     console.log(dietTwo)
-    console.log(displayData)
+    console.log(metricToGraph)
     console.log(graphType)
-    getGroupOneMice();
-    getGroupTwoMice();
+    console.log(dataGroupOne)
+    console.log(dataGroupTwo)
+    console.log(labelsGroupOne)
+    console.log(labelsGroupTwo)
     renderCharts();
   }
 
@@ -86,7 +109,7 @@
     var filteredData = array.filter(mouse => mouse[type])
     var graphData = filteredData.reduce((accumulator, mouse) => {
 
-      accumulator[mouse.original_id] = mouse.weight_in_grams
+      accumulator[mouse.original_id] = mouse[type]
       return accumulator
     }, {})
       dataGroupOne = Object.values(graphData)
@@ -105,49 +128,98 @@
   }
 
   function getGroupOneMice()  {
-    fetch(`${API}/api/v1/mice/find?trisomic=${ploidyOne}&diet=${dietOne}`)
+
+    if (ploidyOne != "N/A" && dietOne != "N/A") {
+      fetch(`${API}/api/v1/mice/find?diet=${dietOne}&trisomic=${ploidyOne}`)
       .then(response => response.json())
       .then(data => {
-        dataToDisplayGroupOne(data, 'weight_in_grams')
+        dataToDisplayGroupOne(data, metricToGraph)
       })
+    } else if (ploidyOne === "N/A" || ploidyOne === null) {
+      fetch(`${API}/api/v1/mice/find?diet=${dietOne}`)
+      .then(response => response.json())
+      .then(data => {
+        dataToDisplayGroupOne(data, metricToGraph)
+      })
+    } else {
+      fetch(`${API}/api/v1/mice/find?trisomic=${ploidyOne}`)
+      .then(response => response.json())
+      .then(data => {
+        dataToDisplayGroupOne(data, metricToGraph)
+      })
+    }
   }
 
   function getGroupTwoMice()  {
-    fetch(`${API}/api/v1/mice/find?trisomic=${ploidyTwo}&diet=${dietTwo}`)
+
+    if (ploidyTwo != "N/A" && dietTwo != "N/A") {
+      fetch(`${API}/api/v1/mice/find?diet=${dietTwo}&trisomic=${ploidyTwo}`)
       .then(response => response.json())
       .then(data => {
-        dataToDisplayGroupTwo(data, 'weight_in_grams')
+        dataToDisplayGroupTwo(data, metricToGraph)
       })
+    } else if (ploidyTwo === "N/A" || ploidyTwo === null) {
+      fetch(`${API}/api/v1/mice/find?diet=${dietTwo}`)
+      .then(response => response.json())
+      .then(data => {
+        dataToDisplayGroupTwo(data, metricToGraph)
+      })
+    } else {
+      fetch(`${API}/api/v1/mice/find?trisomic=${ploidyTwo}`)
+      .then(response => response.json())
+      .then(data => {
+        dataToDisplayGroupTwo(data, metricToGraph)
+      })
+    }
   }
 
 
   function renderCharts()  {
-    var ctxOne = document.getElementById("myChartOne");
-    var myChartOne = new Chart(ctxOne, {
-      type: 'bar',
-      data: {
-        labels: labelsGroupOne,
-        datasets: [
-          {
-            data: dataGroupOne
+    if (chart) {
+      chart.chart.destroy()
+    } else {
+      var ctxOne = document.getElementById("myChartOne");
+      var myChartOne = new Chart(ctxOne, {
+        type: graphType,
+        data: {
+          labels: labelsGroupOne,
+          datasets: [
+            {
+              data: dataGroupOne,
+              label: 'Group 1',
+              backgroundColor: '#223A5E'
+            },
+            {
+              data: dataGroupTwo,
+              label: 'Group 2',
+              backgroundColor: '#838487'
+            }
+          ]
+        },
+        options:  {
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: metricToGraph,
+                          }
+                    }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                  labelString: 'mouse_id'
+                          }
+                    }]
+                  },
+          title:  {
+            display: true,
+            text: `Mice by ${metricToGraph}`,
+            fontSize: 20
           }
-        ]
-      }
-    });
-
-    var ctxTwo = document.getElementById("myChartTwo");
-    var myChartTwo = new Chart(ctxTwo, {
-      type: 'bar',
-      data: {
-        labels: labelsGroupTwo,
-        datasets: [
-          {
-            data: dataGroupTwo
-          }
-        ]
-      }
-    });
-  }
+                }
+      });
+    }
+}
 
 
 </script>

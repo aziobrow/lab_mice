@@ -28,7 +28,7 @@ describe "as an authenticated user" do
     click_on "Untrack"
 
     expect(current_path).to eq(user_dashboard_path)
-    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} succesfully untracked")
+    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} successfully untracked")
   end
 
   it "I can untrack a mouse from a mouse show page" do
@@ -40,7 +40,7 @@ describe "as an authenticated user" do
 
     click_on("Untrack")
 
-    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} succesfully untracked")
+    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} successfully untracked")
     expect(page).to have_content("Track Subject")
 
     visit user_dashboard_path
