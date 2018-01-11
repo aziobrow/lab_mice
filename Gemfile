@@ -38,6 +38,7 @@ gem 'chart-js-rails'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'redis-rails'
 
 
 group :development, :test do
