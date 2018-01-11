@@ -1,5 +1,20 @@
 <h1 class='card-title'>My Subjects</h1>
 
+<div class="filter-selections">
+  <%= form_tag :filter, method: :get do %>
+  <%= hidden_field_tag :user, nil %>
+  <%= check_box_tag 'diet', 'rapamycin', false, class: 'check-opt' %>
+    <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
+    <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
+    <%= label_tag 'Control', nil, class: 'check-label' %>
+    <%= check_box_tag 'trisomic', 'true', false, class: 'check-opt' %>
+    <%= label_tag 'Trisomic', nil, class: 'check-label' %>
+    <%= check_box_tag 'trisomic', 'false', false, class: 'check-opt' %>
+    <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
+    <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
+  <% end %>
+</div>
+
 <div class='mouse-house'>
   <% @user.tracked_subjects.each do |subject| %>
     <% if subject.user == current_user %>

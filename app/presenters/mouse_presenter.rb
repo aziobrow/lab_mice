@@ -10,6 +10,10 @@ class MousePresenter
     end
   end
 
+  def tracked_mice(user)
+    mice.select {|mouse| mouse.users.include?(user)}
+  end
+
   private
   attr_reader :query
 

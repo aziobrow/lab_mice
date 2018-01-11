@@ -55,6 +55,14 @@ attr_reader :mouse
     end
   end
 
+  def display_brain_temp
+    if mouse.harvest_brain_temp?
+      return mouse.weight_in_grams
+    else
+      return "N/A"
+    end
+  end
+
   def format_updated_timestamp
     time = mouse.updated_at.localtime
     time.strftime("%m/%d/%Y, %I:%M%P")
