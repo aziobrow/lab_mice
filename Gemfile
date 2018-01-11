@@ -51,6 +51,7 @@ group :development, :test do
   gem 'capybara'
   gem 'jquery-rails'
   gem 'newrelic_rpm'
+  gem 'simplecov', :require => false
 end
 
 group :development do
