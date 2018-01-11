@@ -3,10 +3,10 @@ require 'rails_helper'
 describe "a visitor can sign up for an account" do
   it "they see the link to create a new account from the welcome page" do
     visit '/'
-    
-    expect(page).to have_link("Create an Account")
 
-    click_on("Create an Account")
+    expect(page).to have_link("Create Account")
+
+    click_on("Create Account")
 
     expect(current_path).to eq(new_user_path)
   end

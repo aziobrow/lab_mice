@@ -6,8 +6,8 @@ describe "when a user visits the login page" do
 
     expect(page).to have_content("Log In")
     expect(page).to have_content("Login with Google")
-    expect(page).to have_content("Email")
-    expect(page).to have_content("Password")
+    expect(page).to have_css("#session_email")
+    expect(page).to have_css("#session_password")
     expect(page).to have_button("Login")
     expect(page).to have_link("Create Account")
   end
@@ -16,6 +16,6 @@ describe "when a user visits the login page" do
     visit login_path
     click_on("Create Account")
 
-    expect(current_path).to eq(new_user_path)  
+    expect(current_path).to eq(new_user_path)
   end
 end
