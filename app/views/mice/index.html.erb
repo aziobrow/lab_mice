@@ -20,6 +20,10 @@
       <div class='favorite-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
         <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>
+    <% elsif mouse.status == 'harvested' %>
+      <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+        <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
+      </div>
     <% else %>
       <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
         <%= image_tag('favorite_mouse_icon.png', size: "30x30", class: 'favorite_mouse_icon') %>
