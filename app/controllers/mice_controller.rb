@@ -1,8 +1,6 @@
 class MiceController < ApplicationController
   def index
-    Rails.cache.fetch(:all_mice) do
-      @mice = Mouse.all
-    end
+    @mice = Mouse.all
   end
 
   def show
