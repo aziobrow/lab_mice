@@ -34,9 +34,21 @@ class MiceController < ApplicationController
   end
 
 private
+  def date_of_birth
+    Date.civil(params["raw_date_of_birth"]["date_of_birth(1i)"].to_i,
+              params["raw_date_of_birth"]["date_of_birth(2i)"].to_i,
+              params["raw_date_of_birth"]["date_of_birth(3i)"].to_i)
+  end
+
+  def experiment_start_date
+    Date.civil(params["raw_experiment_start_date"]["experiment_start_date(1i)"].to_i,
+              params["raw_experiment_start_date"]["experiment_start_date(2i)"].to_i,
+              params["raw_experiment_start_date"]["experiment_start_date(3i)"].to_i)
+  end
+
   def mouse_params
-    params[:mouse][:date_of_birth] = "#{params["date_of_birth_unformatted"]["date_of_birth(2i)"]}/#{params["date_of_birth_unformatted"]["date_of_birth(3i)"]}/#{params["date_of_birth_unformatted"]["date_of_birth(1i)"]}"
-    params[:mouse][:experiment_start_date] = "#{params["experiment_start_date_unformatted"]["experiment_start_date(2i)"]}/#{params["experiment_start_date_unformatted"]["experiment_start_date(3i)"]}/#{params["experiment_start_date_unformatted"]["experiment_start_date(1i)"]}"
+    params[:mouse][:date_of_birth] = date_of_birth
+    params[:mouse][:experiment_start_date] = experiment_start_date
     params.require(:mouse).permit(:original_id, :trisomic, :diet, :color, :sex, :date_of_birth, :experiment_start_date, :group_number)
   end
 

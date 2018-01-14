@@ -13,8 +13,8 @@
   <%= f.label :group_number, 'Group Number' %>
   <%= f.select :group_number, Mouse.distinct.pluck(:group_number) %></br></br>
   <%= f.label :date_of_birth, 'Date of Birth' %>
-  <%= f.date_select :date_of_birth, prefix: 'date_of_birth_unformatted', use_short_month: true, order: [:month, :day, :year] %></br></br>
+  <%= f.date_select :date_of_birth, prefix: 'raw_date_of_birth', use_short_month: true, order: [:month, :day, :year] %></br></br>
   <%= f.label :experiment_start_date, 'Experiment Start Date' %>
-  <%= f.date_select :experiment_start_date, prefix: 'experiment_start_date_unformatted', use_short_month: true, order: [:month, :day, :year] %></br></br>
+  <%= f.date_select :experiment_start_date, prefix: 'raw_experiment_start_date', use_short_month: true, order: [:month, :day, :year] %></br></br>
   <%= f.submit 'Add Mouse' %>
 <% end %>

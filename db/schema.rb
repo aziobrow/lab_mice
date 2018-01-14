@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108041712) do
+ActiveRecord::Schema.define(version: 20180114235057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20180108041712) do
     t.string "diet"
     t.string "color"
     t.integer "sex"
-    t.string "date_of_birth"
-    t.string "experiment_start_date"
+    t.date "date_of_birth"
+    t.date "experiment_start_date"
     t.string "harvest_date"
     t.string "group_number"
     t.float "harvest_brain_temp"
