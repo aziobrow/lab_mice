@@ -1,0 +1,20 @@
+
+<%= form_for @mouse do |f| %>
+  <%= f.label :original_id, 'Lab Id' %>
+  <%= f.text_field :original_id %></br></br>
+  <%= f.label :trisomic, 'Ploidy' %>
+  <%= f.select :trisomic, Mouse.distinct.pluck(:trisomic) %></br></br>
+  <%= f.label :diet, 'Diet' %>
+  <%= f.select :diet, Mouse.distinct.pluck(:diet) %></br></br>
+  <%= f.label :color, 'Color' %>
+  <%= f.select :color, ["black", "agouti"] %></br></br>
+  <%= f.label :sex, 'Sex' %>
+  <%= f.select :sex, ["male", "female"] %></br></br>
+  <%= f.label :group_number, 'Group Number' %>
+  <%= f.select :group_number, Mouse.distinct.pluck(:group_number) %></br></br>
+  <%= f.label :date_of_birth, 'Date of Birth' %>
+  <%= f.date_select :date_of_birth, prefix: 'date_of_birth_unformatted', use_short_month: true, order: [:month, :day, :year] %></br></br>
+  <%= f.label :experiment_start_date, 'Experiment Start Date' %>
+  <%= f.date_select :experiment_start_date, prefix: 'experiment_start_date_unformatted', use_short_month: true, order: [:month, :day, :year] %></br></br>
+  <%= f.submit 'Add Mouse' %>
+<% end %>

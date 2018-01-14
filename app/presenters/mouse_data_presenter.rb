@@ -16,7 +16,11 @@ attr_reader :mouse
   end
 
   def display_status
-    mouse.status.titleize
+    if mouse.status?
+      return mouse.status.titleize
+    else
+      return "N/A"
+    end
   end
 
   def display_group_number

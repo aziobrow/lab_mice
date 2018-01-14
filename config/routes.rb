@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  resources :mice, only: [:index, :show]
+  resources :mice, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :notes, only: [:create]
 
