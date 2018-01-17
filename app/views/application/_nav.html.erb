@@ -24,7 +24,7 @@
       <div class='nav-bar-item'>
         <div class="dropdown">
           <button class="dropbtn"><%= link_to image_tag('notification.png', size: '25x25'), user_dashboard_path %></button>
-          <span class="button__badge">2</span>
+          <span class="button__badge"><%= current_user.notifications.unread.count %></span>
           <div class="dropdown-content">
             <% current_user.notifications.unread.each do |notification| %>
               <%= link_to "#{notification.note.user.first_name} posted about Mouse ##{notification.note.mouse.lab_id} at #{notification.created_at}", mouse_path(notification.note.mouse.lab_id, notification_id: notification.id) %>
@@ -32,8 +32,8 @@
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropbtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
-          <div class="dropdown-content">
+          <button onClick="myFunction('Demo1')" class="dropbtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
+          <div class="dropdown-content w3-container w3-hide" id="Demo1">
             <%= link_to "My Profile", root_path %></a>
             <%= link_to "Logout", logout_path, method: :delete %>
           </div>
