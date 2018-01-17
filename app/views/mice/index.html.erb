@@ -20,7 +20,7 @@
       <div class='favorite-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
         <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>
-    <% elsif mouse.status == 'harvested' %>
+    <% elsif mouse.harvest_status == 'harvested' %>
       <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
         <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>

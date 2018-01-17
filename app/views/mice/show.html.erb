@@ -10,8 +10,17 @@
   <div id="left" ><h2>Attributes</h2>
     <table>
       <tr>
-        <th> Status </th>
-        <td><%= @presenter.display_status %></td>
+        <th> Harvest Status </th>
+        <td><%= @presenter.display_harvest_status %></td>
+      </tr>
+      <tr>
+        <th> Treatment Status </th>
+        <td><%= @presenter.display_treatment_status %></td>
+      </tr>
+      <tr>
+      <tr>
+        <th> Active Status </th>
+        <td><%= @presenter.display_active_status %></td>
       </tr>
       <tr>
         <th> Group </th>
@@ -26,10 +35,6 @@
         <td><%= @presenter.display_diet %></td>
       </tr>
       <tr>
-        <th> Protein(ug/ml) </th>
-        <td><%=@presenter.display_protein %></td>
-      </tr>
-      <tr>
         <th> Color </th>
         <td><%= @presenter.display_color %></td>
       </tr>
@@ -39,24 +44,11 @@
       </tr>
       <tr>
         <th> Date of Birth </th>
-        <td><%= @presenter.mouse.date_of_birth %></td>
+        <td><%= @presenter.display_date_of_birth %></td>
       </tr>
       <tr>
         <th> Experiment Start Date </th>
-        <td><%= @presenter.mouse.experiment_start_date %></td>
-      </tr>
-      <tr>
-        <th> Harvest Date </th>
-        <td><%= @presenter.mouse.harvest_date %></td>
-      </tr>
-      <tr>
-      <tr>
-        <th> Harvest Brain Temperature Read </th>
-        <td><%= @presenter.display_brain_temp %></td>
-      </tr>
-      <tr>
-        <th> Weight(g) </th>
-        <td><%= @presenter.display_weight %></td>
+        <td><%= @presenter.display_experiment_start_date %></td>
       </tr>
       <tr>
         <th> Record Last Updated </th>

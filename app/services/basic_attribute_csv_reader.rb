@@ -1,6 +1,6 @@
 require 'csv'
 
-class CSVReader
+class BasicAttributeCSVReader
 
   attr_reader :attribute_csv_file
 
@@ -14,18 +14,6 @@ class CSVReader
       return "trisomic"
     elsif ploidy_value == "no"
       return "disomic"
-    else
-      return nil
-    end
-  end
-
-  def is_float?(value)
-    true if Float(value) rescue false
-  end
-
-  def clean_protein(value)
-    if is_float?(value)
-      return value.to_f
     else
       return nil
     end
@@ -62,24 +50,12 @@ class CSVReader
     end
   end
 
-  def clean_brain_temp(value)
-    if is_float?(value)
-      return value.to_f
-    else
-      return nil
-    end
-  end
-
-  def clean_weight(value)
-    if is_float?(value)
-      return value.to_f
-    else
-      return nil
-    end
+  def convert_date(value)
+    Date.strptime(value, '%m/%d/%Y')
   end
 
   def csv_to_mice
-    mice = (CSV.open"#{csv_file}", headers: true, header_converters: :symbol)
+    mice = (CSV.open"#{attribute_csv_file}", headers: true, header_converters: :symbol)
 
     count = 0
     mice.each do |mouse|
@@ -91,11 +67,12 @@ class CSVReader
                     diet: clean_diet(mouse[:diet]),
                     color: clean_color(mouse[:color]),
                     sex: clean_gender(mouse[:sex]),
-                    date_of_birth: mouse[:date_of_birth],
-                    experiment_start_date: mouse[:experiment_start_date],
+                    date_of_birth: convert_date(mouse[:date_of_birth]),
+                    experiment_start_date: convert_date(mouse[:experiment_start_date]),
                     group_number: mouse[:group_number],
                     harvest_status: 1,
-                    active_status: 0
+                    active_status: 0,
+                    treatment_status: 0
                   )
     end
   end

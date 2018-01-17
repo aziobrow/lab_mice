@@ -3,7 +3,9 @@ class Mouse < ApplicationRecord
   has_many :users, through: :tracked_subjects
   has_many :notes
 
-  enum status: ['live', 'harvested']
+  enum harvest_status: ['live', 'harvested']
+  enum treatment_status: ['off', 'on']
+  enum active_status: ['active', 'retired']
   enum sex: ['male', 'female']
 
   scope :experiment_start_date, -> start_date { where(experiment_start_date: start_date) }
