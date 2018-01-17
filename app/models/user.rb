@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :tracked_subjects
   has_many :mice, through: :tracked_subjects
   has_many :notes
+  has_many :protocol_users
+  has_many :protocols, through: :protocol_users
 
   def self.google_omniauth(auth)
     user = User.find_or_create_by(uid: auth['uid'])
