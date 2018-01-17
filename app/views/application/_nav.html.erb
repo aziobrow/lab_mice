@@ -1,8 +1,18 @@
   <div class= 'nav-bar'>
     <%= link_to image_tag('knoebel_logo.png', size: "150x70", class: 'nav-bar-item', id: 'nav-image'), "https://www.du.edu/knoebel-institute-healthy-aging/interdisciplinary-approach/" %>
     <% if logged_in? %>
-    <div class='nav-bar-item'><%= link_to "All Mice", mice_path %></div>
-    <div class='nav-bar-item'><%= link_to "My Subjects", user_dashboard_path %></div>
+    <div class='nav-bar-item'><%= link_to "My Dashboard", user_dashboard_path %></div>
+    <div class='nav-bar-item'>
+      <div class="dropdown">
+        <button class="dropbtn">Mice By Protocol</button>
+        <div class="dropdown-content">
+          <% current_user.protocols.each do |protocol| %>
+            <%= link_to "#{protocol.name}", protocol_path(slug: protocol.slug) %></a>
+          <% end %>
+          <%= link_to "All Mice", protocols_path %></a>
+        </div>
+      </div>
+    </div>
       <div class='nav-bar-item'><%= link_to "Analytics", user_analytics_path %></div>
       <div class="nav-bar-item">
         <%= form_tag :search, method: :get do %>

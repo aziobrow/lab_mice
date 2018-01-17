@@ -42,6 +42,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :protocols, only: [:index]
+
+  get '/:slug', to: 'protocols#show', as: 'protocol'
+
   resources :mice, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :notes, only: [:create]

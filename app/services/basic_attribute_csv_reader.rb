@@ -72,7 +72,8 @@ class BasicAttributeCSVReader
                     group_number: mouse[:group_number],
                     harvest_status: 1,
                     active_status: 0,
-                    treatment_status: 0
+                    treatment_status: 0,
+                    protocol: Protocol.all.sample
                   )
     end
   end
