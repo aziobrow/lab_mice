@@ -2,6 +2,7 @@ class Mouse < ApplicationRecord
   has_many :tracked_subjects, :dependent => :delete_all
   has_many :users, through: :tracked_subjects
   has_many :notes
+  has_many :notifications, through: :notes
   belongs_to :protocol
 
   enum harvest_status: ['live', 'harvested']

@@ -29,6 +29,10 @@ class MiceController < ApplicationController
   end
 
   def show
+    if params['notification_id']
+      notification = Notification.find(params['notification_id'])
+      notification.update(read: true)
+    end
     mouse = Mouse.find_by(lab_id: params[:id])
     @presenter ||= MouseDataPresenter.new(mouse)
   end

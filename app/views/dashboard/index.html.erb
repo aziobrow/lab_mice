@@ -25,3 +25,7 @@
     <% end %>
   <% end %>
 </div>
+
+<h1 class='card-title'>Saved Notes</h1>
+
+<%= render partial: 'mice/saved_note', collection: @user.saved_notes %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117063901) do
+ActiveRecord::Schema.define(version: 20180117204333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20180117063901) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "note_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_notifications_on_note_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "protocol_users", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "protocol_id"
@@ -57,6 +67,26 @@ ActiveRecord::Schema.define(version: 20180117063901) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+  end
+
+  create_table "read_marks", id: :serial, force: :cascade do |t|
+    t.string "readable_type"
+    t.integer "readable_id"
+    t.string "reader_type"
+    t.integer "reader_id"
+    t.datetime "timestamp"
+    t.index ["readable_type", "readable_id"], name: "index_read_marks_on_readable_type_and_readable_id"
+    t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
+    t.index ["reader_type", "reader_id"], name: "index_read_marks_on_reader_type_and_reader_id"
+  end
+
+  create_table "saved_notes", force: :cascade do |t|
+    t.bigint "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_saved_notes_on_note_id"
+    t.index ["user_id"], name: "index_saved_notes_on_user_id"
   end
 
   create_table "tracked_subjects", force: :cascade do |t|
@@ -82,8 +112,12 @@ ActiveRecord::Schema.define(version: 20180117063901) do
   add_foreign_key "mice", "protocols"
   add_foreign_key "notes", "mice"
   add_foreign_key "notes", "users"
+  add_foreign_key "notifications", "notes"
+  add_foreign_key "notifications", "users"
   add_foreign_key "protocol_users", "protocols"
   add_foreign_key "protocol_users", "users"
+  add_foreign_key "saved_notes", "notes"
+  add_foreign_key "saved_notes", "users"
   add_foreign_key "tracked_subjects", "mice"
   add_foreign_key "tracked_subjects", "users"
 end

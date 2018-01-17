@@ -13,14 +13,24 @@
         </div>
       </div>
     </div>
-      <div class='nav-bar-item'><%= link_to "Analytics", user_analytics_path %></div>
       <div class="nav-bar-item">
         <%= form_tag :search, method: :get do %>
           <%= text_field_tag :search, nil, placeholder: "search by mouse id", class: 'nav-search' %>
           <%= submit_tag "Search", class: "nav-button" %>
         <% end %>
       </div>
+      <div class='nav-bar-item'><%= link_to "Analytics", user_analytics_path %></div>
+
       <div class='nav-bar-item'>
+        <div class="dropdown">
+          <button class="dropbtn"><%= link_to image_tag('notification.png', size: '25x25'), user_dashboard_path %></button>
+          <span class="button__badge">2</span>
+          <div class="dropdown-content">
+            <% current_user.notifications.unread.each do |notification| %>
+              <%= link_to "#{notification.note.user.first_name} posted about Mouse ##{notification.note.mouse.lab_id} at #{notification.created_at}", mouse_path(notification.note.mouse.lab_id, notification_id: notification.id) %>
+            <% end %>
+          </div>
+        </div>
         <div class="dropdown">
           <button class="dropbtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
           <div class="dropdown-content">

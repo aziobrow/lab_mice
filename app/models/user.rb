@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :notes
   has_many :protocol_users
   has_many :protocols, through: :protocol_users
+  has_many :notifications, dependent: :destroy
+  has_many :saved_notes, dependent: :destroy
 
   def self.google_omniauth(auth)
     user = User.find_or_create_by(uid: auth['uid'])
