@@ -7,8 +7,8 @@ class MiceController < ApplicationController
   def create
     @mouse = Mouse.new(mouse_params)
     if @mouse.save
-      flash[:success] = "Mouse ##{@mouse.original_id} successfully added to the database."
-      redirect_to mouse_path(@mouse.original_id)
+      flash[:success] = "Mouse ##{@mouse.lab_id} successfully added to the database."
+      redirect_to mouse_path(@mouse.lab_id)
     else
       flash[:error] = "Something went wrong. Try again."
       render :new
@@ -21,7 +21,7 @@ class MiceController < ApplicationController
 
   def update
     @mouse = Mouse.update(params[:id], mouse_params)
-    redirect_to mouse_path(@mouse.original_id)
+    redirect_to mouse_path(@mouse.lab_id)
   end
 
   def index
@@ -29,7 +29,7 @@ class MiceController < ApplicationController
   end
 
   def show
-    mouse = Mouse.find_by(original_id: params[:id])
+    mouse = Mouse.find_by(lab_id: params[:id])
     @presenter ||= MouseDataPresenter.new(mouse)
   end
 
@@ -49,7 +49,7 @@ private
   def mouse_params
     params[:mouse][:date_of_birth] = date_of_birth
     params[:mouse][:experiment_start_date] = experiment_start_date
-    params.require(:mouse).permit(:original_id, :trisomic, :diet, :color, :sex, :date_of_birth, :experiment_start_date, :group_number)
+    params.require(:mouse).permit(:lab_id, :ploidy, :diet, :color, :sex, :date_of_birth, :experiment_start_date, :group_number)
   end
 
 end

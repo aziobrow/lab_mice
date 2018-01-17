@@ -2,18 +2,18 @@ require 'csv'
 
 class CSVReader
 
-  attr_reader :csv_file
+  attr_reader :attribute_csv_file
 
-  def initialize(csv_file)
-    @csv_file = csv_file
+  def initialize(attribute_csv_file)
+    @attribute_csv_file = attribute_csv_file
   end
 
-  def clean_trisomic(value)
-    trisomic_value = value.downcase
-    if trisomic_value == "yes"
-      return true
-    elsif trisomic_value == "no"
-      return false
+  def clean_ploidy(value)
+    ploidy_value = value.downcase
+    if ploidy_value == "yes"
+      return "trisomic"
+    elsif ploidy_value == "no"
+      return "disomic"
     else
       return nil
     end
@@ -86,19 +86,16 @@ class CSVReader
       puts "Mouse #{count} created"
       count += 1
 
-      Mouse.create!(original_id: mouse[:id],
-                    trisomic: clean_trisomic(mouse[:trisomic]),
-                    protein_ug_per_ml: clean_protein(mouse[:protein_ug_per_ml]),
+      Mouse.create!(lab_id: mouse[:id],
+                    ploidy: clean_ploidy(mouse[:trisomic]),
                     diet: clean_diet(mouse[:diet]),
                     color: clean_color(mouse[:color]),
                     sex: clean_gender(mouse[:sex]),
                     date_of_birth: mouse[:date_of_birth],
                     experiment_start_date: mouse[:experiment_start_date],
-                    harvest_date: mouse[:harvest_date],
                     group_number: mouse[:group_number],
-                    harvest_brain_temp: clean_brain_temp(mouse[:harvest_brain_temp]),
-                    weight_in_grams: clean_weight(mouse[:weight_in_grams]),
-                    status: 1
+                    harvest_status: 1,
+                    active_status: 0
                   )
     end
   end

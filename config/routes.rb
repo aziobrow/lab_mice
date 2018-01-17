@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       controller :mice do
         get '/mice/all' => :index, as: 'mice'
-        get '/mouse/:original_id' => :show, as: 'mouse'
+        get '/mouse/:lab_id' => :show, as: 'mouse'
       end
 
       namespace :mice do
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   controller :tracked_subjects do
     post '/tracked_subjects' => :create
-    delete '/tracked_subjects/:original_id' => :destroy, as: 'tracked_subject'
+    delete '/tracked_subjects/:lab_id' => :destroy, as: 'tracked_subject'
   end
 
   controller :dashboard do

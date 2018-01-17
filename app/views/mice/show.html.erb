@@ -1,8 +1,8 @@
-<h1 class='card-title'><%= @presenter.display_original_id %></br>
+<h1 class='card-title'><%= @presenter.display_lab_id %></br>
   <% if @presenter.mouse_is_favorite?(current_user) %>
-  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(original_id: @presenter.mouse.original_id), method: :delete, class: 'unfavorite-link' %>
+  <%= link_to image_tag('favorite_star.png', size: "50x50", class: 'favorited'), tracked_subject_path(lab_id: @presenter.mouse.lab_id), method: :delete, class: 'unfavorite-link' %>
   <% else %>
-  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(original_id: @presenter.mouse.original_id), method: :post, class: 'favorite-link' %>
+  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(lab_id: @presenter.mouse.lab_id), method: :post, class: 'favorite-link' %>
   <% end %>
 </h1>
 
@@ -18,8 +18,8 @@
         <td><%= @presenter.display_group_number %></td>
       </tr>
       <tr>
-        <th> Trisomic </th>
-        <td><%= @presenter.display_trisomic %></td>
+        <th> Ploidy </th>
+        <td><%= @presenter.display_ploidy %></td>
       </tr>
       <tr>
         <th> Diet </th>

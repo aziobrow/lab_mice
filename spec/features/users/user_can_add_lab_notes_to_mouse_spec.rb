@@ -7,7 +7,7 @@ describe "as an authenticated user" do
 
   it "I can add lab notes to a mouse" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit mouse_path(mouse.original_id)
+    visit mouse_path(mouse.lab_id)
 
     fill_in "note[content]", with: "Testing"
     click_on("Add Note")
@@ -18,14 +18,14 @@ describe "as an authenticated user" do
 
   it "other users can see my notes" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit mouse_path(mouse.original_id)
+    visit mouse_path(mouse.lab_id)
 
     fill_in "note[content]", with: "Testing"
     click_on("Add Note")
     click_link("Logout")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alt_user)
-    visit mouse_path(mouse.original_id)
+    visit mouse_path(mouse.lab_id)
 
     expect(page).to have_content("Note added on")
     expect(page).to have_content("by #{user.first_name} #{user.last_name}")

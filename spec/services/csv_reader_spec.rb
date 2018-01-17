@@ -8,10 +8,10 @@ describe CSVReader do
   end
 
   it "converts trisomic value to a boolean" do
-    expect(reader.clean_trisomic("Yes")).to eq(true)
-    expect(reader.clean_trisomic("yes")).to eq(true)
-    expect(reader.clean_trisomic("No")).to eq(false)
-    expect(reader.clean_trisomic("no")).to eq(false)
+    expect(reader.clean_trisomic("Yes")).to eq("trisomic")
+    expect(reader.clean_trisomic("yes")).to eq("trisomic")
+    expect(reader.clean_trisomic("No")).to eq("disomic")
+    expect(reader.clean_trisomic("no")).to eq("disomic")
     expect(reader.clean_trisomic("xyz")).to eq(nil)
     expect(reader.clean_trisomic("")).to eq(nil)
   end
@@ -73,8 +73,8 @@ describe CSVReader do
     mouse = Mouse.first
 
     expect(Mouse.all.count).to eq(4)
-    expect(mouse.original_id).to eq("4555-0")
-    expect(mouse.trisomic).to eq(true)
+    expect(mouse.lab_id).to eq("4555-0")
+    expect(mouse.ploidy).to eq("trisomic")
     expect(mouse.protein_ug_per_ml).to eq(nil)
     expect(mouse.diet).to eq("rapamycin")
     expect(mouse.color).to eq("agouti")

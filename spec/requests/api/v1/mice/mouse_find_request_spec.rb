@@ -9,14 +9,14 @@ describe "find mouse API" do
     let(:mouse2) { Mouse.second }
 
   it "responds with all attributes of a mouse" do
-    get "/api/v1/mice/find?id=#{mouse1.original_id}"
+    get "/api/v1/mice/find?id=#{mouse1.lab_id}"
     mouse_info = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_success
     expect(mouse_info.count).to eq(1)
     expect(mouse_info[0]).to have_value(mouse1.id)
-    expect(mouse_info[0]).to have_value(mouse1.original_id)
-    expect(mouse_info[0]).to have_value(mouse1.trisomic)
+    expect(mouse_info[0]).to have_value(mouse1.lab_id)
+    expect(mouse_info[0]).to have_value(mouse1.ploidy)
     expect(mouse_info[0]).to have_value(mouse1.protein_ug_per_ml)
     expect(mouse_info[0]).to have_value(mouse1.diet)
     expect(mouse_info[0]).to have_value(mouse1.color)
@@ -32,7 +32,7 @@ describe "find mouse API" do
   it "finds trisomic" do
     trisomic_mouse = create(:mouse_trisomic_true)
     trisomic_mouse2 = create(:mouse_trisomic_true)
-    get "/api/v1/mice/find?trisomic=#{trisomic_mouse.trisomic}"
+    get "/api/v1/mice/find?ploidy=#{trisomic_mouse.ploidy}"
     mouse_info = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_success
@@ -174,9 +174,9 @@ describe "find mouse API" do
   end
 
   it "finds by trisomic and rapa" do
-    create(:mouse, diet: 'rapa', trisomic: true)
-    create(:mouse, trisomic: true)
-    get "/api/v1/mice/find?trisomic=true&diet=rapa"
+    create(:mouse, diet: 'rapa', ploidy: 'trisomic')
+    create(:mouse, ploidy: 'trisomic')
+    get "/api/v1/mice/find?ploidy=trisomic&diet=rapa"
 
     mouse_info = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_success
@@ -184,9 +184,9 @@ describe "find mouse API" do
   end
 
   it "finds by trisomic and birth date" do
-    create(:mouse, trisomic: true)
-    create(:mouse, trisomic: true, date_of_birth: '3/3/2013')
-    get "/api/v1/mice/find?trisomic=true&date_of_birth=3/3/2013"
+    create(:mouse, ploidy: 'trisomic')
+    create(:mouse, ploidy: 'trisomic', date_of_birth: '3/3/2013')
+    get "/api/v1/mice/find?ploidy=trisomic&date_of_birth=3/3/2013"
 
     mouse_info = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_success
@@ -194,9 +194,9 @@ describe "find mouse API" do
   end
 
   it "finds by trisomic and control diet" do
-    create(:mouse, trisomic: true, diet: 'Contr')
-    create(:mouse, trisomic: true, diet: 'Contr')
-    get "/api/v1/mice/find?trisomic=true&diet=Contr"
+    create(:mouse, ploidy: 'trisomic', diet: 'Contr')
+    create(:mouse, ploidy: 'trisomic', diet: 'Contr')
+    get "/api/v1/mice/find?ploidy=trisomic&diet=Contr"
 
     mouse_info = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_success
@@ -204,9 +204,9 @@ describe "find mouse API" do
   end
 
   it "finds by trisomic and rapa diet" do
-    create(:mouse, trisomic: true)
-    create(:mouse, trisomic: true, diet: 'rapa')
-    get "/api/v1/mice/find?trisomic=true&diet=rapa"
+    create(:mouse, ploidy: 'trisomic')
+    create(:mouse, ploidy: 'trisomic', diet: 'rapa')
+    get "/api/v1/mice/find?ploidy=trisomic&diet=rapa"
 
     mouse_info = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_success

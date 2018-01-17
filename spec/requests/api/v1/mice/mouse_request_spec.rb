@@ -13,7 +13,7 @@ describe "Mouse API" do
   end
 
   it "can show one mouse by its id" do
-    mouse_id = create(:mouse).original_id
+    mouse_id = create(:mouse).lab_id
 
     get api_v1_mouse_path(mouse_id)
 

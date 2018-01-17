@@ -78,7 +78,7 @@ $( document ).ready(function() {
     var filteredData = array.filter(mouse => mouse[type])
     var graphData = filteredData.reduce((accumulator, mouse) => {
 
-      accumulator[mouse.original_id] = mouse[type]
+      accumulator[mouse.lab_id] = mouse[type]
       return accumulator
     }, {})
       dataGroupOne = Object.values(graphData)
@@ -89,7 +89,7 @@ $( document ).ready(function() {
     var filteredData = array.filter(mouse => mouse[type])
     var graphData = filteredData.reduce((accumulator, mouse) => {
 
-      accumulator[mouse.original_id] = mouse.weight_in_grams
+      accumulator[mouse.lab_id] = mouse.weight_in_grams
       return accumulator
     }, {})
       dataGroupTwo = Object.values(graphData)
@@ -99,7 +99,7 @@ $( document ).ready(function() {
   function getGroupOneMice()  {
 
     if (ploidyOne != "N/A" && dietOne != "N/A") {
-      fetch(`${API}/api/v1/mice/find?diet=${dietOne}&trisomic=${ploidyOne}`)
+      fetch(`${API}/api/v1/mice/find?diet=${dietOne}&ploidy=${ploidyOne}`)
       .then(response => response.json())
       .then(data => {
         dataToDisplayGroupOne(data, metricToGraph)
@@ -111,7 +111,7 @@ $( document ).ready(function() {
         dataToDisplayGroupOne(data, metricToGraph)
       })
     } else {
-      fetch(`${API}/api/v1/mice/find?trisomic=${ploidyOne}`)
+      fetch(`${API}/api/v1/mice/find?ploidy=${ploidyOne}`)
       .then(response => response.json())
       .then(data => {
         dataToDisplayGroupOne(data, metricToGraph)
@@ -122,7 +122,7 @@ $( document ).ready(function() {
   function getGroupTwoMice()  {
 
     if (ploidyTwo != "N/A" && dietTwo != "N/A") {
-      fetch(`${API}/api/v1/mice/find?diet=${dietTwo}&trisomic=${ploidyTwo}`)
+      fetch(`${API}/api/v1/mice/find?diet=${dietTwo}&ploidy=${ploidyTwo}`)
       .then(response => response.json())
       .then(data => {
         dataToDisplayGroupTwo(data, metricToGraph)
@@ -134,7 +134,7 @@ $( document ).ready(function() {
         dataToDisplayGroupTwo(data, metricToGraph)
       })
     } else {
-      fetch(`${API}/api/v1/mice/find?trisomic=${ploidyTwo}`)
+      fetch(`${API}/api/v1/mice/find?ploidy=${ploidyTwo}`)
       .then(response => response.json())
       .then(data => {
         dataToDisplayGroupTwo(data, metricToGraph)

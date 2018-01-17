@@ -11,8 +11,8 @@ attr_reader :mouse
     false
   end
 
-  def display_original_id
-    "Mouse ##{mouse.original_id}"
+  def display_lab_id
+    "Mouse ##{mouse.lab_id}"
   end
 
   def display_status
@@ -39,8 +39,8 @@ attr_reader :mouse
     mouse.sex.titleize
   end
 
-  def display_trisomic
-    mouse.trisomic.to_s.titleize
+  def display_ploidy
+    mouse.ploidy.titleize
   end
 
   def display_protein

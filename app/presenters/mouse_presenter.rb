@@ -6,7 +6,7 @@ class MousePresenter
 
   def mice
     service.find_mice.map do |raw_mouse|
-      Mouse.find_by(original_id: raw_mouse[:original_id])
+      Mouse.find_by(lab_id: raw_mouse[:lab_id])
     end
   end
 

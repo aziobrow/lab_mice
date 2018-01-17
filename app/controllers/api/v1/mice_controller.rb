@@ -5,6 +5,6 @@ class Api::V1::MiceController < ActionController::API
   end
 
   def show
-    render json: Mouse.find_by(original_id: params[:original_id])
+    render json: Mouse.find_by(lab_id: params[:lab_id])
   end
 end

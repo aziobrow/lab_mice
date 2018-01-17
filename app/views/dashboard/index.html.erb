@@ -7,9 +7,9 @@
     <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
     <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
     <%= label_tag 'Control', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'true', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'true', false, class: 'check-opt' %>
     <%= label_tag 'Trisomic', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'false', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'false', false, class: 'check-opt' %>
     <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
     <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
   <% end %>
@@ -18,9 +18,9 @@
 <div class='mouse-house'>
   <% @user.tracked_subjects.each do |subject| %>
     <% if subject.user == current_user %>
-      <div class='favorite-mouse'><%= link_to "#{subject.mouse.original_id}", mouse_path(subject.mouse.original_id) %>
+      <div class='favorite-mouse'><%= link_to "#{subject.mouse.lab_id}", mouse_path(subject.mouse.lab_id) %>
         <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
-        <%= link_to "Untrack", tracked_subject_path(original_id: subject.mouse.original_id), method: :delete, class: 'untrack-link' %></li>
+        <%= link_to "Untrack", tracked_subject_path(lab_id: subject.mouse.lab_id), method: :delete, class: 'untrack-link' %></li>
       </div>
     <% end %>
   <% end %>

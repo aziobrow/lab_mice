@@ -11036,7 +11036,7 @@ $( document ).ready(function() {
     var filteredData = array.filter(mouse => mouse[type])
     var graphData = filteredData.reduce((accumulator, mouse) => {
 
-      accumulator[mouse.original_id] = mouse[type]
+      accumulator[mouse.lab_id] = mouse[type]
       return accumulator
     }, {})
       dataGroupOne = Object.values(graphData)
@@ -11047,7 +11047,7 @@ $( document ).ready(function() {
     var filteredData = array.filter(mouse => mouse[type])
     var graphData = filteredData.reduce((accumulator, mouse) => {
 
-      accumulator[mouse.original_id] = mouse.weight_in_grams
+      accumulator[mouse.lab_id] = mouse.weight_in_grams
       return accumulator
     }, {})
       dataGroupTwo = Object.values(graphData)

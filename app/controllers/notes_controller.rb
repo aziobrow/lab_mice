@@ -1,10 +1,10 @@
 class NotesController < ApplicationController
 
   def create
-    mouse = Mouse.find_by(original_id: params[:original_id])
+    mouse = Mouse.find_by(lab_id: params[:lab_id])
     @note = Note.create!(user: current_user, mouse: mouse, content: note_params[:content])
 
-    redirect_back(fallback_location: mouse_path(mouse.original_id))
+    redirect_back(fallback_location: mouse_path(mouse.lab_id))
   end
 
   private

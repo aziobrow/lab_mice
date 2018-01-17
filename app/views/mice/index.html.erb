@@ -6,9 +6,9 @@
     <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
     <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
     <%= label_tag 'Control', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'true', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'true', false, class: 'check-opt' %>
     <%= label_tag 'Trisomic', nil, class: 'check-label' %>
-    <%= check_box_tag 'trisomic', 'false', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'false', false, class: 'check-opt' %>
     <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
     <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
   <% end %>
@@ -17,15 +17,15 @@
 <div class='mouse-house'>
   <% @mice.each do |mouse| %>
     <% if mouse.users.include?(current_user) %>
-      <div class='favorite-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+      <div class='favorite-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
         <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>
     <% elsif mouse.status == 'harvested' %>
-      <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+      <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
         <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>
     <% else %>
-      <div class='index-mouse'><%= link_to "#{mouse.original_id}", mouse_path(mouse.original_id) %>
+      <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
         <%= image_tag('favorite_mouse_icon.png', size: "30x30", class: 'favorite_mouse_icon') %>
       </div>
     <% end %>

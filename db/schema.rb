@@ -10,27 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114235057) do
+ActiveRecord::Schema.define(version: 20180117033236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "mice", force: :cascade do |t|
-    t.string "original_id"
-    t.boolean "trisomic"
-    t.float "protein_ug_per_ml"
+    t.string "lab_id"
+    t.string "ploidy"
     t.string "diet"
     t.string "color"
     t.integer "sex"
     t.date "date_of_birth"
     t.date "experiment_start_date"
-    t.string "harvest_date"
     t.string "group_number"
-    t.float "harvest_brain_temp"
-    t.float "weight_in_grams"
-    t.integer "status"
+    t.integer "harvest_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "treatment_status"
+    t.integer "active_status"
   end
 
   create_table "notes", force: :cascade do |t|

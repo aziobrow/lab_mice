@@ -1,9 +1,9 @@
 
 <%= form_for @mouse do |f| %>
-  <%= f.label :original_id, 'Lab Id' %>
-  <%= f.text_field :original_id %></br></br>
-  <%= f.label :trisomic, 'Ploidy' %>
-  <%= f.select :trisomic, Mouse.distinct.pluck(:trisomic) %></br></br>
+  <%= f.label :lab_id, 'Lab Id' %>
+  <%= f.text_field :lab_id %></br></br>
+  <%= f.label :ploidy, 'Ploidy' %>
+  <%= f.select :ploidy, Mouse.distinct.pluck(:ploidy) %></br></br>
   <%= f.label :diet, 'Diet' %>
   <%= f.select :diet, Mouse.distinct.pluck(:diet) %></br></br>
   <%= f.label :color, 'Color' %>

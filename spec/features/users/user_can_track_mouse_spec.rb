@@ -6,7 +6,7 @@ describe "as an authenticated user" do
   before do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit mouse_path(tracked_mouse.original_id)
+    visit mouse_path(tracked_mouse.lab_id)
   end
 
   it "I can see the option to track a mouse" do
@@ -17,7 +17,7 @@ describe "as an authenticated user" do
     click_link("Unfavorite star")
     visit user_dashboard_path
 
-    expect(page).to have_link("#{tracked_mouse.original_id}")
+    expect(page).to have_link("#{tracked_mouse.lab_id}")
     expect(page).to have_css(".favorite-mouse", 1)
     expect(page).to have_link("Untrack")
   end
@@ -28,18 +28,18 @@ describe "as an authenticated user" do
     click_on "Untrack"
 
     expect(current_path).to eq(user_dashboard_path)
-    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} successfully untracked")
+    expect(page).to have_content("Mouse ##{tracked_mouse.lab_id} successfully untracked")
   end
 
   it "I can untrack a mouse from a mouse show page" do
     click_link("Unfavorite star")
 
-    expect(current_path).to eq(mouse_path(tracked_mouse.original_id))
+    expect(current_path).to eq(mouse_path(tracked_mouse.lab_id))
     expect(page).to have_css(".favorited")
 
     click_link("Favorite star")
 
-    expect(page).to have_content("Mouse ##{tracked_mouse.original_id} successfully untracked")
+    expect(page).to have_content("Mouse ##{tracked_mouse.lab_id} successfully untracked")
     expect(page).to have_css(".unfavorited")
 
     visit user_dashboard_path

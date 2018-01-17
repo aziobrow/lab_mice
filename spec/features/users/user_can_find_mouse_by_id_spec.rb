@@ -7,16 +7,16 @@ describe "as an authenticated user" do
   before do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit '/'
-    fill_in "search", :with => "#{mouse.original_id}"
+    fill_in "search", :with => "#{mouse.lab_id}"
     click_on "Search"
   end
 
-  context "I can search for a mouse by its original id" do
+  context "I can search for a mouse by its lab id" do
 
     it "and see all relevant information about a mouse" do
-      expect(current_path).to eq(mouse_path(mouse.original_id))
-      expect(page).to have_content("#{mouse.original_id}")
-      expect(page).to have_content("#{mouse.trisomic.to_s.titleize}")
+      expect(current_path).to eq(mouse_path(mouse.lab_id))
+      expect(page).to have_content("#{mouse.lab_id}")
+      expect(page).to have_content("#{mouse.ploidy.titleize}")
       expect(page).to have_content("#{mouse.protein_ug_per_ml}")
       expect(page).to have_content("#{mouse.diet.titleize}")
       expect(page).to have_content("#{mouse.color.titleize}")

@@ -7,12 +7,12 @@ describe "as an authenticated user" do
 
   before do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit mouse_path(mouse.original_id)
+    visit mouse_path(mouse.lab_id)
   end
 
   it "I can see details for a single mouse" do
-    expect(page).to have_content("Mouse ##{mouse.original_id}")
-    expect(page).to have_content("#{mouse.trisomic.to_s.titleize}")
+    expect(page).to have_content("Mouse ##{mouse.lab_id}")
+    expect(page).to have_content("#{mouse.ploidy.titleize}")
     expect(page).to have_content("#{mouse.protein_ug_per_ml}")
     expect(page).to have_content("#{mouse.diet.titleize}")
     expect(page).to have_content("#{mouse.color.titleize}")

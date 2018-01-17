@@ -12,7 +12,7 @@ class MouseService
     response = conn.get do |req|
       req.url "/api/v1/mice/find"
       req.params["diet"] = "#{filter[:diet]}"
-      req.params["trisomic"] = "#{filter[:trisomic]}"
+      req.params["ploidy"] = "#{filter[:ploidy]}"
     end
     JSON.parse(response.body, symbolize_names: true)
   end

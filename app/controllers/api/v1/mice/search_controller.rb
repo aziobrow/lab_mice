@@ -2,7 +2,7 @@ class Api::V1::Mice::SearchController < ActionController::API
   has_scope :experiment_start_date
   has_scope :harvest_date
   has_scope :date_of_birth
-  has_scope :trisomic
+  has_scope :ploidy
   has_scope :diet
   has_scope :color
   has_scope :sex

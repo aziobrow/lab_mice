@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "service returns raw mouse info" do
   before do
-    service = MouseService.new({trisomic: "false", diet: "rapamycin"})
+    service = MouseService.new({ploidy: "disomic", diet: "rapamycin"})
     @results = service.find_mice
     @mouse_result = @results.first
   end
