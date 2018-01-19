@@ -18,16 +18,38 @@
 <div class='mouse-house'>
   <% @user.tracked_subjects.each do |subject| %>
     <% if subject.user == current_user %>
-      <div class='favorite-mouse'><%= link_to "#{subject.mouse.lab_id}", mouse_path(subject.mouse.lab_id) %>
-        <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
-        <%= link_to "Untrack", tracked_subject_path(lab_id: subject.mouse.lab_id), method: :delete, class: 'untrack-link' %></li>
+    <div class='favorite-mouse'>
+      <div class='star-icon'><%= image_tag('outline_star.svg', size: "25x25", class: "favorite_icon") %></div>
+
+      <div class='index-mouse-header'>
+        <%= link_to "#{subject.mouse.lab_id}", mouse_path(subject.mouse.lab_id) %>
+        <div class='protocol-number'><%= subject.mouse.protocol.name %></div>
       </div>
-    <% end %>
+      <% if subject.mouse.harvest_status == 'harvested' %>
+        <div class='index-mouse-icons'>
+          <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
+          <% if subject.mouse.treatment_status == 'off' %>
+            <%= image_tag('no_treatment.png', size: "30x30", class: 'treatment_off_icon') %>
+          <% else %>
+            <%= image_tag('black_treatment.png', size: "30x30", class: 'treatment_off_icon') %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class='index-mouse-icons'>
+          <%= image_tag('live_mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
+          <% if subject.mouse.treatment_status == 'off' %>
+            <%= image_tag('no_treatment.png', size: "30x30", class: 'treatment_off_icon') %>
+          <% else %>
+            <%= image_tag('black_treatment.png', size: "30x30", class: 'treatment_off_icon') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>
+</div></br>
 
 <h1 class='card-title'>Saved Notes</h1>
-
 
 <div class="tab">
   <% @user.protocols.each do |protocol| %>
