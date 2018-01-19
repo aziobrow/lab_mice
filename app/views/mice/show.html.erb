@@ -2,12 +2,12 @@
   <% if @presenter.mouse_is_favorite?(current_user) %>
   <%= link_to image_tag('outline_star.svg', size: "43x43", class: 'favorited'), tracked_subject_path(lab_id: @presenter.mouse.lab_id), method: :delete, class: 'unfavorite-link' %>
   <% else %>
-  <%= link_to image_tag('unfavorite_star.png', size: "35x35", class: 'unfavorited'), tracked_subjects_path(lab_id: @presenter.mouse.lab_id), method: :post, class: 'favorite-link' %>
+  <%= link_to image_tag('unfavorite_star.png', size: "40x40", class: 'unfavorited'), tracked_subjects_path(lab_id: @presenter.mouse.lab_id), method: :post, class: 'favorite-link' %>
   <% end %>
 </h1>
 
 <div id="container" >
-  <div id="left" ><h2>Attributes</h2>
+  <div id="left" ><h2><%= link_to image_tag("edit.png", size: '20x20', class: 'edit-mouse'), edit_mouse_path(@presenter.mouse) %> Data</h2>
     <table class='mouse-details'>
       <tr>
         <th> Protocol </th>
