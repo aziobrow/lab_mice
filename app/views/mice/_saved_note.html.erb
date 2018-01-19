@@ -1,4 +1,6 @@
 <% @user.saved_notes.each do |saved_note| %>
-  <%= saved_note.created_at.localtime.strftime("Saved on %m/%d/%Y, %I:%M%P") %>
-  <%= render partial: 'mice/note', locals: {note: saved_note.note}%>
+  <%= content_tag(:div, nil, class: 'tabcontent', id: "#{saved_note.note.mouse.protocol.name.downcase.gsub(" ", "")}Content") do %>
+    <%= saved_note.created_at.localtime.strftime("Saved on %m/%d/%Y, %I:%M%P") %>
+    <%= render partial: 'mice/note', locals: {note: saved_note.note}%>
+  <% end %>
 <% end %>
