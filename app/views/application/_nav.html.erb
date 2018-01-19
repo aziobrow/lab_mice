@@ -23,7 +23,7 @@
 
 
       <div class='nav-bar-item'>
-        <button id='notificationBtn'><%= link_to image_tag('notification.png', size: '25x25'), user_dashboard_path %></button>
+        <button id='notificationBtn'><%= link_to image_tag('notification.png', size: '28x28'), user_dashboard_path %></button>
         <span class="button_badge"><%= current_user.notifications.unread.count %></span>
         <div class="dropdown-content" id="notificationMenu">
           <% current_user.notifications.unread.each do |notification| %>

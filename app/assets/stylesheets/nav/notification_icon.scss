@@ -10,10 +10,17 @@
   font-size: 10px;
 
   position: absolute;
-  top: 0;
-  right: 60px;
+  top: 20px;
+  right: 172px;
+  z-index: 2;
 }
 
 #notificationBtn  {
-  margin-top: 3px;
+  position: absolute;
+  top: 22px;
+  right: 180px;
+  z-index: 1;
+  padding: 0px;
+  background-color: $roof_terracotta;
+  border: 0px;
 }
