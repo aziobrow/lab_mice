@@ -23,12 +23,23 @@
   display: none;
 }
 
+#notificationMenu   {
+  display: none;
+  position: absolute;
+  right: 100px;
+  top: 75px;
+}
+
 #protocolMenuBtn  {
   margin-top: 7px;
 }
 
 #profileMenuBtn  {
   margin-top: 7px;
+}
+
+#notificationBtn  {
+  cursor: pointer;
 }
 
 

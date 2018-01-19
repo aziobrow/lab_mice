@@ -1,0 +1,16 @@
+.profile-details  {
+  list-style-type: none;
+  font-family: $roboto;
+  padding: 0;
+  margin: 0;
+}
+
+#edit-profile   {
+  display: inline-block;
+  margin-top: 25px;
+
+  a   {
+    font-family: $roboto;
+    color: white;
+  }
+}

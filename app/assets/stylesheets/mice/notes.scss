@@ -26,6 +26,7 @@
     font-size: 12px;
     font-weight: bold;
     color: $roof_terracotta;
+    margin-bottom: 10px;
   }
 
   .card-button  {
@@ -36,7 +37,8 @@
 #note-save  {
   display: inline-block;
   font-size: 14px;
-  background-color: $cararra;
+  font-family: $roboto_slab;
+  margin-top: 8px;
 
   a:link  {
     text-decoration: none;
@@ -60,11 +62,15 @@
     text-decoration: none;
     color: black;
   }
+
+  a:hover {
+    color: $roof_terracotta;
+  }
 }
 
 .note-container   {
-  display: flex;
-  justify-content: flex-start;
+  // display: flex;
+  justify-content: center;
   margin-top: 10px;
   align-items: center;
   text-align: center;

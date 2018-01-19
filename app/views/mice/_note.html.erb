@@ -1,14 +1,14 @@
 <div class='note'>
-  <p class= 'note-content'>
-    <%= note.content %><br></p>
-  <p class= 'note-details'>
+  <div class= 'note-content'>
+    <%= note.content %><br></div>
+  <div class= 'note-details'>
     <%= note.created_at.localtime.strftime("Note added on %m/%d/%Y, %I:%M%P") %>
     by
-    <%= note.user.first_name%> <%= note.user.last_name %>
+    <%= note.user.first_name%> <%= note.user.last_name %></br>
+  </div>
     <% if current_user.saved_notes.find_by(note: note) %>
-      <div class='card-button' id='note-save'><%= link_to "Remove from Dashboard", saved_note_path(note_id: note.id), method: :delete %></div>
+      <div id='note-save'><%= link_to "Remove from Dashboard", saved_note_path(note_id: note.id), method: :delete %></div>
     <% else %>
-      <div class='card-button' id='note-save'><%= link_to "Add to Dashboard", saved_notes_path(note_id: note.id), method: :create %></div>
+      <div id='note-save'><%= link_to "Add to Dashboard", saved_notes_path(note_id: note.id), method: :create %></div>
     <% end %>
-  </p>
 </div>

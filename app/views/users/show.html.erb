@@ -4,15 +4,15 @@
     <div class='card-form'>
       <h3><%= @user.first_name %> <%= @user.last_name %><//h3>
       <p><%= @user.email %></p>
-      <ul>
+      <ul class='profile-details'>
         <% @user.protocols.each do |protocol| %>
           <li><%= protocol.name %></li>
         <% end %>
       </ul>
 
-        <p class='card-directive'>
+        <div class='card-button' id='edit-profile'>
           <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-        </p>
+        </div>
     </div>
   </div></br>
 

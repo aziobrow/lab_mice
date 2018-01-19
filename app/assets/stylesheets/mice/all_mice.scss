@@ -27,6 +27,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding-left: 50px;
+  padding-right: 50px;
 
   a:link  {
     font-family: $roboto;
@@ -50,8 +51,8 @@
 
 .index-mouse  {
   list-style-type: none;
-  height: 120px;
-  width: 120px;
+  height: 129px;
+  width: 129px;
   border: solid 2px $roof_terracotta;
   margin: 7px;
   display: flex;
@@ -79,8 +80,8 @@
 
 .favorite-mouse {
   list-style-type: none;
-  height: 120px;
-  width: 120px;
+  height: 129px;
+  width: 129px;
   border: solid 2px $roof_terracotta;
   margin: 7px;
   display: flex;

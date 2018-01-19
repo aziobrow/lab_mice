@@ -23,9 +23,10 @@
 
 
       <div class='nav-bar-item'>
-        <button id='notificationBtn'><%= link_to image_tag('notification.png', size: '28x28'), user_dashboard_path %></button>
+        <button id='notificationBtn'><%= image_tag('notification.png', size: '28x28') %></button>
         <span class="button_badge"><%= current_user.notifications.unread.count %></span>
         <div class="dropdown-content" id="notificationMenu">
+          <%= link_to "Mark All as Read" %>
           <% current_user.notifications.unread.each do |notification| %>
           <%= link_to "#{notification.note.user.first_name} posted about Mouse ##{notification.note.mouse.lab_id} at #{notification.created_at}", mouse_path(notification.note.mouse.lab_id, notification_id: notification.id) %>
           <% end %>
