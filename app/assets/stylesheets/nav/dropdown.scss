@@ -23,6 +23,11 @@
   display: none;
 }
 
+#protocolMenuBtn  {
+  margin-top: 7px;
+}
+
+
 .dropdown-content {
     position: absolute;
     background-color: $oslo_gray;
@@ -40,9 +45,3 @@
     border: 1px solid black;
     text-align: center;
 }
-
-// .dropdown-content a:hover {background-color: $oslo_gray}
-//
-// .dropdown:hover .dropdown-content {
-//     display: block;
-// }

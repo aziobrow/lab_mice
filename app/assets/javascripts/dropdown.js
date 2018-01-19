@@ -6,6 +6,10 @@ $( function() {
   $('#profileMenuBtn').click(toggleProfileDropdown)
 })
 
+$( function() {
+  $('#notificationBtn').click(toggleNotificationDropdown)
+})
+
 function toggleMiceDropdown() {
   var displayStatus = $('#protocolMenu').css('display');
   if (displayStatus === 'block')  {
@@ -22,5 +26,15 @@ function toggleProfileDropdown() {
   } else {
     console.log(displayStatus)
     $("#profileMenu").css("display", "block");
+  }
+}
+
+function toggleNotificationDropdown() {
+  var displayStatus = $('#notificationMenu').css('display');
+  if (displayStatus === 'block')  {
+    $("#notificationMenu").css("display", "none");
+  } else {
+    console.log(displayStatus)
+    $("#notificationMenu").css("display", "block");
   }
 }

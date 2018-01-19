@@ -9,7 +9,7 @@
           <% current_user.protocols.each do |protocol| %>
             <%= link_to "#{protocol.name}", protocol_path(slug: protocol.slug) %></a>
           <% end %>
-          <%= link_to "All Mice", protocols_path %></a>
+          <%= link_to "All My Mice", protocols_path %></a>
         </div>
       </div>
     </div>
@@ -21,15 +21,14 @@
       </div>
       <div class='nav-bar-item'><%= link_to "Analytics", user_analytics_path %></div>
 
+
       <div class='nav-bar-item'>
-        <div class="dropdown">
-          <button class="dropbtn"><%= link_to image_tag('notification.png', size: '25x25'), user_dashboard_path %></button>
-          <span class="button__badge"><%= current_user.notifications.unread.count %></span>
-          <div class="dropdown-content">
-            <% current_user.notifications.unread.each do |notification| %>
-              <%= link_to "#{notification.note.user.first_name} posted about Mouse ##{notification.note.mouse.lab_id} at #{notification.created_at}", mouse_path(notification.note.mouse.lab_id, notification_id: notification.id) %>
-            <% end %>
-          </div>
+        <button id='notificationBtn'><%= link_to image_tag('notification.png', size: '25x25'), user_dashboard_path %></button>
+        <span class="button_badge"><%= current_user.notifications.unread.count %></span>
+        <div class="dropdown-content" id="notificationMenu">
+          <% current_user.notifications.unread.each do |notification| %>
+          <%= link_to "#{notification.note.user.first_name} posted about Mouse ##{notification.note.mouse.lab_id} at #{notification.created_at}", mouse_path(notification.note.mouse.lab_id, notification_id: notification.id) %>
+          <% end %>
         </div>
         <div class="dropdown">
           <button class="dropbtn" id="profileMenuBtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
@@ -39,6 +38,7 @@
           </div>
         </div>
       </div>
+    </div>
 
     <% else %>
       <div class='nav-bar-item' id='nav-login'><%= link_to 'Login', login_path %></div>

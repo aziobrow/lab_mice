@@ -1,4 +1,4 @@
-.button__badge {
+.button_badge {
   background-color: $white;
   border-radius: 4px;
   color: $black;
@@ -11,5 +11,9 @@
 
   position: absolute;
   top: 0;
-  right: 12px;
+  right: 60px;
+}
+
+#notificationBtn  {
+  margin-top: 3px;
 }
