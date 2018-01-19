@@ -6,8 +6,9 @@ $cararra: #ECEBE8;
 $black: #000000;
 $white: #FFFFFF;
 
-@import 'nav/nav_bar';
-@import 'nav/dropdown';
+
+@import 'application/nav_bar';
+@import 'application/dropdown';
 @import 'mice/all_mice';
 @import 'accounts/welcome';
 @import 'accounts/cards';
@@ -17,7 +18,8 @@ $white: #FFFFFF;
 @import 'accounts/new_account';
 @import 'mice/notes';
 @import 'mice/my_subjects';
-@import 'nav/flash';
+@import 'application/flash';
 @import 'mice/analytics';
 @import 'mice/charts';
-@import 'nav/notification_icon';
+@import 'application/notification_icon';
+@import 'application/footer';
