@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     get '/filter' => :index, as: 'filter'
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show, :edit, :update]
 
   resources :protocols, only: [:index]
 

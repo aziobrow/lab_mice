@@ -13,6 +13,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update!(user_params)
+    if user.save
+      flash[:success] = "Your profile information was succesfully updated"
+    else
+      flash[:error]= "Something went wrong. Please try again."
+    end
+  end
+
 private
 
     def user_params

@@ -17,10 +17,9 @@
     position: relative;
     vertical-align: middle;
     bottom: 1px;
+    z-index: -1;
   }
-
 }
-
 
 .mouse-house  {
   display: flex;
@@ -41,37 +40,68 @@
     color: $black;
   }
 }
+.star-icon  {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 5px;
+}
 
 .index-mouse  {
   list-style-type: none;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border: solid 2px $roof_terracotta;
-  padding: 7px;
   margin: 7px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   background-color: $cararra;
+  font-family: $roboto;
+
+  a {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.fav-star-container {
+  position: relative;
+  display: inline-block;
+}
+
+.index-mouse-header {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .favorite-mouse {
   list-style-type: none;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border: solid 2px $roof_terracotta;
-  padding: 7px;
   margin: 7px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   background-color: $oslo_gray;
+  font-family: $roboto;
+
+  a {
+    font-weight: bold;
+    font-size: 18px;
+  }
 }
 
-.favorite_mouse_icon  {
-  margin-top: 16px;
+.protocol-number  {
+  padding: 2px 4px;
+  font-size: 12px;
+  color: $roof_terracotta;
+}
+
+.favorite_icon  {
+  padding: 3px;
 }

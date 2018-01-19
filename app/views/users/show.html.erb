@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='card'>
+    <h1 class='card-title'>Profile Information</h1>
+    <div class='card-form'>
+      <h3><%= @user.first_name %> <%= @user.last_name %><//h3>
+      <p><%= @user.email %></p>
+      <ul>
+        <% @user.protocols.each do |protocol| %>
+          <li><%= protocol.name %></li>
+        <% end %>
+      </ul>
+
+        <p class='card-directive'>
+          <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+        </p>
+    </div>
+  </div></br>
+
+</div>

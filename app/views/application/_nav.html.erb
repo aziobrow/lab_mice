@@ -33,7 +33,7 @@
         <div class="dropdown">
           <button class="dropbtn" id="profileMenuBtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
           <div class="dropdown-content" id="profileMenu">
-            <%= link_to "My Profile", root_path %></a>
+            <%= link_to "My Profile", user_path(current_user) %></a>
             <%= link_to "Logout", logout_path, method: :delete %>
           </div>
         </div>

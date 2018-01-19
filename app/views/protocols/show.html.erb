@@ -20,8 +20,17 @@
         <%= image_tag('favorite_star.png', size: "20x20", class: 'favorite_mouse_icon') %>
       </div>
     <% elsif mouse.harvest_status == 'harvested' %>
-      <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
-        <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
+      <div class='index-mouse'>
+        <div class='star-icon'><%= image_tag('outline_star.svg', size: "25x25", class: "favorite_icon") %></div>
+
+        <div class='index-mouse-header'>
+          <%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
+          <div class='protocol-number'><%= mouse.protocol.name %></div>
+        </div>
+        <div class='index-mouse-icons'>
+          <%= image_tag('dead-mouse.png', size: "30x30", class: 'favorite_mouse_icon') %>
+          <%= image_tag('no_treatment.png', size: "30x30", class: 'treatment_off_icon') %>
+        </div>
       </div>
     <% else %>
       <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>

@@ -1,0 +1,15 @@
+<div class='container'>
+  <div class='card'>
+    <h2 class='card-title'>Update Account Information</h2>
+    <div class='card-form'>
+      <%= form_for @user do |f| %>
+        <%= f.text_field :first_name, placeholder: "First Name" %></br></br>
+        <%= f.text_field :last_name, placeholder: "Last Name" %></br></br>
+        <%= f.email_field :email, placeholder: "Email Address" %></br></br>
+        <%= f.password_field :password, placeholder: "Password" %></br></br>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></br></br>
+        <%= f.submit 'Update Account', class: 'card-button' %></br></br>
+      <% end %>
+    </div>
+  </div></br>
+</div>

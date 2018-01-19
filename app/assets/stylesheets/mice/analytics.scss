@@ -9,21 +9,25 @@
   #group-one-header  {
     position: relative;
     left: 34px;
+    z-index: -1;
   }
 
   #group-two-header {
     position: relative;
     left: 117px;
+    z-index: -1;
   }
 
   #data-header  {
     position: relative;
     left: 135px;
+    z-index: -1;
   }
 
   #chart-type-header  {
     position: relative;
     left: 62px;
+    z-index: -1;
   }
 }
 
