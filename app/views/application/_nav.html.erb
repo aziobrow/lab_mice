@@ -4,8 +4,8 @@
     <div class='nav-bar-item'><%= link_to "My Dashboard", user_dashboard_path %></div>
     <div class='nav-bar-item'>
       <div class="dropdown">
-        <button class="dropbtn">Mice By Protocol</button>
-        <div class="dropdown-content">
+        <button class="dropbtn" id='protocolMenuBtn'>Mice By Protocol</button>
+        <div class="dropdown-content" id="protocolMenu">
           <% current_user.protocols.each do |protocol| %>
             <%= link_to "#{protocol.name}", protocol_path(slug: protocol.slug) %></a>
           <% end %>
@@ -32,8 +32,8 @@
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropbtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
-          <div class="dropdown-content" id="Demo1">
+          <button class="dropbtn" id="profileMenuBtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
+          <div class="dropdown-content" id="profileMenu">
             <%= link_to "My Profile", root_path %></a>
             <%= link_to "Logout", logout_path, method: :delete %>
           </div>

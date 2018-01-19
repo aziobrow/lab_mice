@@ -1,12 +1,26 @@
 $( function() {
-  $('.dropbtn').click(myFunction)
+  $('#protocolMenuBtn').click(toggleMiceDropdown)
 })
 
-  function myFunction() {
-    var displayStatus = $('#Demo1').css('display');
-    if (displayStatus === 'block')  {
-      $("#Demo1").css("display", "none");
-    } else {
-      $("#Demo1").css("display", "block");
-    }
+$( function() {
+  $('#profileMenuBtn').click(toggleProfileDropdown)
+})
+
+function toggleMiceDropdown() {
+  var displayStatus = $('#protocolMenu').css('display');
+  if (displayStatus === 'block')  {
+    $("#protocolMenu").css("display", "none");
+  } else {
+    $("#protocolMenu").css("display", "block");
   }
+}
+
+function toggleProfileDropdown() {
+  var displayStatus = $('#profileMenu').css('display');
+  if (displayStatus === 'block')  {
+    $("#profileMenu").css("display", "none");
+  } else {
+    console.log(displayStatus)
+    $("#profileMenu").css("display", "block");
+  }
+}
