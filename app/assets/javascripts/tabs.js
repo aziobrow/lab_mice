@@ -20,10 +20,10 @@ var lastButtonId;
       lastContentId = tabContentId;
     }
     var displayStatus = $(tabContentId).css('display');
-      if (displayStatus === 'block')  {
+      if (displayStatus === 'inline-block')  {
         $(tabContentId).css("display", "none");
       } else {
-        $(tabContentId).css("display", "block");
+        $(tabContentId).css("display", "inline-block");
         $(`#${tabButtonId}`).addClass("active");
       }
   }

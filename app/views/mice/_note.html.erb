@@ -6,9 +6,9 @@
     by
     <%= note.user.first_name%> <%= note.user.last_name %>
     <% if current_user.saved_notes.find_by(note: note) %>
-      <%= link_to image_tag('favorite_star.png', size: '25x25'), saved_note_path(note_id: note.id), method: :delete %>
+      <div class='card-button' id='note-save'><%= link_to "Remove from Dashboard", saved_note_path(note_id: note.id), method: :delete %></div>
     <% else %>
-      <%= link_to image_tag('unfavorite_star.png', size: '15x15'), saved_notes_path(note_id: note.id), method: :create %>
+      <div class='card-button' id='note-save'><%= link_to "Add to Dashboard", saved_notes_path(note_id: note.id), method: :create %></div>
     <% end %>
-  </p><hr>
+  </p>
 </div>

@@ -31,5 +31,45 @@
   .card-button  {
     margin-top: 10px;
   }
+}
 
+#note-save  {
+  display: inline-block;
+  font-size: 14px;
+  background-color: $cararra;
+
+  a:link  {
+    text-decoration: none;
+    color: $roof_terracotta;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: $roof_terracotta;
+  }
+}
+
+.saved-note-header  {
+  font-family: $roboto_slab;
+
+  a:link  {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.note-container   {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.note-stamp {
+  font-size: 12px;
 }
