@@ -1,14 +1,23 @@
-<h1><%= @protocol.name %></h1>
+<h1 class="card-title"><%= @protocol.name %></h1>
+  <table class="protocol-table">
+    <th> Member Name </th>
+    <th> Email Member </th>
+    <% @protocol.users.each do |user| %>
+      <% if user != current_user %>
+        <tr>
+          <td><%= user.first_name %> <%= user.last_name %></td>
+          <td>  <%= mail_to "#{user.email}", nil, subject: "Lab Update Re: #{@protocol.name}" %></td>
+        </tr>
+      <% end %>
+    <% end %>
 
-<% @protocol.users.each do |user| %>
-  <%= mail_to "#{user.email}", "#{user.first_name} #{user.last_name}", subject: "Lab Update Re: #{@protocol.name}" %>
-<% end %>
+  </table><br>
 
 <div class='mouse-house'>
   <% @protocol.mice.each do |mouse| %>
     <% if mouse.users.include?(current_user) %>
       <div class='favorite-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
-        <%= image_tag('favorites_star.png', size: "30x30", class: 'favorite_mouse_icon') %>
+        <%= image_tag('favorite_star.png', size: "20x20", class: 'favorite_mouse_icon') %>
       </div>
     <% elsif mouse.harvest_status == 'harvested' %>
       <div class='index-mouse'><%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
