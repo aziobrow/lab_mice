@@ -39,6 +39,8 @@ gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'redis-rails'
+gem "chartkick"
+gem 'hightop'
 
 
 group :development, :test do

@@ -1,0 +1,4 @@
+<%= form_tag(chart_path, method: :get) do %>
+  <%= select_tag 'attribute', options_for_select(Mouse.attribute_names)%>
+  <%= submit_tag("Create Chart", class: 'card-button') %>
+<% end %>

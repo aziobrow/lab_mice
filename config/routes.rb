@@ -33,11 +33,15 @@ Rails.application.routes.draw do
 
   controller :dashboard do
     get '/dashboard' => :index, as: 'user_dashboard'
-    get '/analytics' => :show, as: 'user_analytics'
   end
 
   controller :filter do
     get '/filter' => :index, as: 'filter'
+  end
+
+  controller :analytics do
+    get '/analytics' => :index, as: 'chart_select'
+    get '/chart' => :show, as: 'chart'
   end
 
   resources :users, only: [:new, :create, :show, :edit, :update]
