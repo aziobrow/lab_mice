@@ -1,5 +1,5 @@
+<%= content_tag(:div, nil, class: 'tabcontent', id: "#{saved_note.note.mouse.protocol.name.downcase.gsub(" ", "")}Content") do %>
 <% @user.saved_notes.each do |saved_note| %>
-  <%= content_tag(:div, nil, class: 'tabcontent', id: "#{saved_note.note.mouse.protocol.name.downcase.gsub(" ", "")}Content") do %>
   <div class='note-container'>
     <div class='saved-note-header'><%= link_to("Note for Mouse ##{saved_note.note.mouse.lab_id}", mouse_path(id: saved_note.note.mouse.lab_id))  %></br>
       <div class='note-stamp'><%= saved_note.created_at.localtime.strftime("Saved on %m/%d/%Y, %I:%M%P") %><hr></div>
@@ -9,13 +9,13 @@
   <% end %>
 <% end %>
 
-<div class='note-container'>
   <div class='tabcontent' id="allProtocolsContent">
     <% @user.saved_notes.each do |saved_note| %>
+    <div class='note-container'>
       <div class='saved-note-header'><%= link_to("Note for Mouse ##{saved_note.note.mouse.lab_id}", mouse_path(id: saved_note.note.mouse.lab_id))  %></br>
         <div class='note-stamp'><%= saved_note.created_at.localtime.strftime("Saved on %m/%d/%Y, %I:%M%P") %><hr></div>
       </div>
       <%= render partial: 'mice/note', locals: {note: saved_note.note}%>
+    </div>
     <% end %>
-  </div>
 </div>

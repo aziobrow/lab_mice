@@ -4,8 +4,13 @@
   text-align: center;
 
   .note {
-    width: 90%;
     padding-left: 25px;
+    border: 1px solid black;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: $cararra;
   }
 
   textarea {
@@ -36,7 +41,7 @@
 
 #note-save  {
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   font-family: $roboto_slab;
   margin-top: 8px;
 
@@ -69,11 +74,13 @@
 }
 
 .note-container   {
-  // display: flex;
   justify-content: center;
   margin-top: 10px;
   align-items: center;
   text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
 }
 
 .note-stamp {

@@ -7,9 +7,9 @@
     <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
     <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
     <%= label_tag 'Control', nil, class: 'check-label' %>
-    <%= check_box_tag 'ploidy', 'true', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'trisomic', false, class: 'check-opt' %>
     <%= label_tag 'Trisomic', nil, class: 'check-label' %>
-    <%= check_box_tag 'ploidy', 'false', false, class: 'check-opt' %>
+    <%= check_box_tag 'ploidy', 'disomic', false, class: 'check-opt' %>
     <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
     <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
   <% end %>

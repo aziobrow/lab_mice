@@ -1,4 +1,5 @@
 .filter-selections  {
+  position: relative;
   text-align: center;
   font-family: $roboto;
   margin-top: 5px;
@@ -17,7 +18,6 @@
     position: relative;
     vertical-align: middle;
     bottom: 1px;
-    z-index: -1;
   }
 }
 

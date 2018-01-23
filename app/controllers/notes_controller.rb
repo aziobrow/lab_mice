@@ -11,6 +11,12 @@ class NotesController < ApplicationController
     redirect_back(fallback_location: mouse_path(mouse.lab_id))
   end
 
+  def destroy
+    Note.find(params[:id]).destroy
+    flash[:success] = "Note successfully deleted"
+    redirect_back(fallback_location: root_path)
+  end
+
   private
       def note_params
         params.require(:note).permit(:content)

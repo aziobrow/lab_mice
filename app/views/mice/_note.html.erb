@@ -1,6 +1,6 @@
 <div class='note'>
   <div class= 'note-content'>
-    <%= note.content %><br></div>
+    <%= note.content %><br><br></div>
   <div class= 'note-details'>
     <%= note.created_at.localtime.strftime("Note added on %m/%d/%Y, %I:%M%P") %>
     by
@@ -10,5 +10,6 @@
       <div id='note-save'><%= link_to "Remove from Dashboard", saved_note_path(note_id: note.id), method: :delete %></div>
     <% else %>
       <div id='note-save'><%= link_to "Add to Dashboard", saved_notes_path(note_id: note.id), method: :create %></div>
-    <% end %>
+    <% end %><br>
+    <div id='note-save'><%= link_to "Delete Note", note_path(note), method: :delete %></div>
 </div>

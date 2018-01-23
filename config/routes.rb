@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   resources :mice, only: [:index, :show, :new, :create, :edit, :update]
 
-  resources :notes, only: [:create]
+  resources :notes, only: [:create, :destroy]
 
   resources :notifications, only: [:index]
 

@@ -53,7 +53,7 @@ private
   def mouse_params
     params[:mouse][:date_of_birth] = date_of_birth
     params[:mouse][:experiment_start_date] = experiment_start_date
-    params.require(:mouse).permit(:lab_id, :ploidy, :diet, :color, :sex, :date_of_birth, :experiment_start_date, :group_number)
+    params.require(:mouse).permit(:lab_id, :ploidy, :diet, :color, :sex, :date_of_birth, :experiment_start_date, :group_number, :protocol_id, :harvest_status, :treatment_status, :active_status)
   end
 
 end

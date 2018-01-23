@@ -14,7 +14,7 @@ body { margin: 0; }
   background-color: $roof_terracotta;
   border-bottom: 2px solid black;
   border-top: 2px solid black;
-
+  z-index: 1;
 }
 
 .nav-bar-item {

@@ -2,6 +2,8 @@
 <%= form_for @mouse do |f| %>
   <%= f.label :lab_id, 'Lab Id' %>
   <%= f.text_field :lab_id %></br></br>
+  <%= f.label :protocol_id, 'Protocol' %>
+  <%= f.select :protocol_id, Protocol.all.collect {|p| [ p.name, p.id ] } %></br></br>
   <%= f.label :ploidy, 'Ploidy' %>
   <%= f.select :ploidy, Mouse.distinct.pluck(:ploidy) %></br></br>
   <%= f.label :diet, 'Diet' %>
@@ -12,9 +14,15 @@
   <%= f.select :sex, ["male", "female"] %></br></br>
   <%= f.label :group_number, 'Group Number' %>
   <%= f.select :group_number, Mouse.distinct.pluck(:group_number) %></br></br>
+  <%= f.label :harvest_status, 'Harvest Status' %>
+  <%= f.select :harvest_status, ["live", "harvested"] %></br></br>
+  <%= f.label :treatment_status, 'Treatment Status' %>
+  <%= f.select :treatment_status, ["on", "off"] %></br></br>
+  <%= f.label :active_status, 'Active Status' %>
+  <%= f.select :active_status, ["active", "retired"] %></br></br>
   <%= f.label :date_of_birth, 'Date of Birth' %>
   <%= f.date_select :date_of_birth, prefix: 'raw_date_of_birth', use_short_month: true, order: [:month, :day, :year] %></br></br>
   <%= f.label :experiment_start_date, 'Experiment Start Date' %>
   <%= f.date_select :experiment_start_date, prefix: 'raw_experiment_start_date', use_short_month: true, order: [:month, :day, :year] %></br></br>
-  <%= f.submit 'Add Mouse' %>
+  <%= f.submit %>
 <% end %>
