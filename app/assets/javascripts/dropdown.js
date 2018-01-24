@@ -12,6 +12,10 @@ $(document).on('turbolinks:load', function()  {
     $('#notificationBtn').click(toggleNotificationDropdown)
   })
 
+  $( function() {
+    $('#manageMenuBtn').click(toggleManagementDropdown)
+  })
+
   function toggleMiceDropdown() {
     var displayStatus = $('#protocolMenu').css('display');
     if (displayStatus === 'block')  {
@@ -38,6 +42,16 @@ $(document).on('turbolinks:load', function()  {
     } else {
       console.log(displayStatus)
       $("#notificationMenu").css("display", "block");
+    }
+  }
+
+  function toggleManagementDropdown() {
+    var displayStatus = $('#manageMenu').css('display');
+    if (displayStatus === 'block')  {
+      $("#manageMenu").css("display", "none");
+    } else {
+      console.log(displayStatus)
+      $("#manageMenu").css("display", "block");
     }
   }
 })

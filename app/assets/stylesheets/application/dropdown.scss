@@ -16,11 +16,20 @@
 
 #profileMenu  {
   display: none;
-  top: 57px;
 }
 
 #protocolMenu  {
   display: none;
+  position: fixed;
+  top: 77px;
+  left: 518px;
+}
+
+#manageMenu  {
+  display: none;
+  position: fixed;
+  top: 77px;
+  left: 260px;
 }
 
 #notificationMenu   {
