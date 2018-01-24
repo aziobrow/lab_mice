@@ -4,6 +4,7 @@ class Mouse < ApplicationRecord
   has_many :notes
   has_many :notifications, through: :notes
   belongs_to :protocol
+  has_one :harvest
 
   enum harvest_status: ['live', 'harvested']
   enum treatment_status: ['off', 'on']

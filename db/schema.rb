@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117204333) do
+ActiveRecord::Schema.define(version: 20180124043128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "harvests", force: :cascade do |t|
+    t.bigint "mouse_id"
+    t.date "date_of_harvest"
+    t.float "weight_in_g"
+    t.float "protein_ug_per_ml"
+    t.float "brain_temp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mouse_id"], name: "index_harvests_on_mouse_id"
+  end
 
   create_table "mice", force: :cascade do |t|
     t.string "lab_id"
@@ -109,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180117204333) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "harvests", "mice"
   add_foreign_key "mice", "protocols"
   add_foreign_key "notes", "mice"
   add_foreign_key "notes", "users"
