@@ -1,6 +1,10 @@
 class SavedNotesController < ApplicationController
   before_action :set_note
 
+  def index
+    @user = current_user
+  end
+
   def create
     saved_note = SavedNote.new(user: current_user, note: @note)
     if saved_note.save

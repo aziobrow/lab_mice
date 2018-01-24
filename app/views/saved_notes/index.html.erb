@@ -1,0 +1,9 @@
+<h1 class='card-title'>Saved Notes</h1>
+
+<div class="tab">
+  <% @user.protocols.each do |protocol| %>
+      <%= button_tag("#{protocol.name}", class: "tablinks", id: "#{protocol.name.downcase.gsub(" ", "")}" )%>
+  <% end %>
+  <%= button_tag("All Saved Notes", class: "tablinks", id: "allProtocols" )%>
+</div>
+<%= render partial: 'mice/saved_note', collection: @user.saved_notes %>

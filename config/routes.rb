@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
 
-  resources :saved_notes, only: [:create]
+  resources :saved_notes, only: [:create, :index]
 
   delete '/saved_notes/:note_id', to: 'saved_notes#destroy', as: 'saved_note'
 
