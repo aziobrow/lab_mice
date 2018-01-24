@@ -8,7 +8,11 @@
 
 <div id="container" >
   <div id="left" ><h2><%= link_to image_tag("edit.png", size: '20x20', class: 'edit-mouse'), edit_mouse_path(@presenter.mouse) %> Data</h2>
-    <table class='mouse-details'>
+    <div class="tab" id="attributes-tab">
+      <%= button_tag("Attributes", class: "attribute-tablinks", id: "mouse-attributes-button" )%>
+      <%= button_tag("Harvest Data", class: "attribute-tablinks", id: "harvest-data-button" )%>
+    </div>
+    <table class='mouse-attributes-table' >
       <tr>
         <th> Protocol </th>
         <td><%= @presenter.mouse.protocol.name %></td>
@@ -21,7 +25,6 @@
         <th> Treatment Status </th>
         <td><%= @presenter.display_treatment_status %></td>
       </tr>
-      <tr>
       <tr>
         <th> Active Status </th>
         <td><%= @presenter.display_active_status %></td>
@@ -57,6 +60,25 @@
       <tr>
         <th> Record Last Updated </th>
         <td><%= @presenter.format_updated_timestamp %></td>
+      </tr>
+    </table>
+
+    <table class='mouse-harvest-data' >
+      <tr>
+        <th> Harvest Date </th>
+        <td><%= @presenter.display_harvest_date %></td>
+      </tr>
+      <tr>
+        <th> Weight in Grams </th>
+        <td><%= @presenter.display_harvest_weight %></td>
+      </tr>
+      <tr>
+        <th> Protein Level </th>
+        <td><%= @presenter.display_harvest_protein %></td>
+      </tr>
+      <tr>
+        <th> Brain Temperature Read </th>
+        <td><%= @presenter.display_harvest_brain_temp %></td>
       </tr>
     </table>
   </div>

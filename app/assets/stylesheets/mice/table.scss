@@ -14,8 +14,17 @@ table {
     margin: auto;
 }
 
-.mouse-details  {
+.mouse-attributes-table  {
   margin-bottom: 90px;
+}
+
+.mouse-harvest-data {
+  margin-bottom: 90px;
+  display: none;
+
+  th  {
+    width: 50%;
+  }
 }
 
 th {

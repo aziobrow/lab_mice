@@ -1,0 +1,28 @@
+.dropdown-container  {
+  text-align: center;
+}
+
+.dropdown-card  {
+  display: inline-block;
+  text-align: center;
+  border: 2px solid $roof_terracotta;
+  width: 35%;
+  background-color: $cararra;
+  padding: 10px 0px 10px 0px;
+}
+
+.mouse-form  {
+  font-family: $roboto;
+  font-size: 18px;
+  display: inline-block;
+  text-align: left;
+  margin-top: 15px;
+
+  label {
+    margin-right: 10px;
+  }
+
+}
+#form-button  {
+  margin-left: 110px;
+}

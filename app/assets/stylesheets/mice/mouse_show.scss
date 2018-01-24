@@ -28,3 +28,15 @@
     margin: 0;
   }
 }
+
+#attributes-tab {
+  width: 80%;
+  text-align: center;
+  margin-left: 73px;
+  margin-bottom: 10px;
+  border: solid 1px black;
+
+  button {
+    color: $roof_terracotta;
+  }
+}

@@ -1,5 +1,5 @@
 
-<%= form_for @mouse do |f| %>
+<%= form_for @mouse, html: {class: "mouse-form"} do |f| %>
   <%= f.label :lab_id, 'Lab Id' %>
   <%= f.text_field :lab_id %></br></br>
   <%= f.label :protocol_id, 'Protocol' %>
@@ -24,5 +24,5 @@
   <%= f.date_select :date_of_birth, prefix: 'raw_date_of_birth', use_short_month: true, order: [:month, :day, :year] %></br></br>
   <%= f.label :experiment_start_date, 'Experiment Start Date' %>
   <%= f.date_select :experiment_start_date, prefix: 'raw_experiment_start_date', use_short_month: true, order: [:month, :day, :year] %></br></br>
-  <%= f.submit %>
+  <%= f.submit class: 'card-button', id: 'form-button' %>
 <% end %>
