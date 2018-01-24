@@ -4,7 +4,8 @@ class AnalyticsController < ApplicationController
   end
 
   def show
-    @mice = MousePresenter.new(chart_params).mice
+    @chart_type = params["chart_type"]
+    @data = Mouse.group(params["attribute"]).count
   end
 
   private
