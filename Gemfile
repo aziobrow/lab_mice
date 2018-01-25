@@ -41,6 +41,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'redis-rails'
 gem "chartkick"
 gem 'hightop'
+gem 'groupdate'
 
 
 group :development, :test do

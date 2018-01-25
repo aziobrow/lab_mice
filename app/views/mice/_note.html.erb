@@ -7,9 +7,9 @@
     <%= note.user.first_name%> <%= note.user.last_name %></br>
   </div>
     <% if current_user.saved_notes.find_by(note: note) %>
-      <div id='note-save'><%= link_to "Remove from Dashboard", saved_note_path(note_id: note.id), method: :delete %></div>
+      <div id='note-save'><%= link_to "Unsave Note", saved_note_path(note_id: note.id), method: :delete %></div>
     <% else %>
-      <div id='note-save'><%= link_to "Add to Dashboard", saved_notes_path(note_id: note.id), method: :create %></div>
+      <div id='note-save'><%= link_to "Save Note", saved_notes_path(note_id: note.id), method: :create %></div>
     <% end %><br>
     <div id='note-save'><%= link_to "Delete Note", note_path(note), method: :delete %></div>
 </div>

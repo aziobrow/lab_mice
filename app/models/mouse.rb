@@ -24,4 +24,10 @@ class Mouse < ApplicationRecord
   scope :protein_ug_per_ml, lambda { |start_level:| where("protein_ug_per_ml > ? AND protein_ug_per_ml < ?", start_level, start_level + 1) }
   scope :harvest_brain_temp, lambda { |harvest_brain_temp:| where("harvest_brain_temp > ? AND harvest_brain_temp < ?", harvest_brain_temp, harvest_brain_temp + 1) }
   scope :weight_in_grams, lambda { |weight_in_grams:| where("weight_in_grams> ? AND weight_in_grams < ?", weight_in_grams, weight_in_grams + 1) }
+
+  def harvested?
+    return true if self.harvest_status == 'harvested'
+    return false
+  end
+
 end

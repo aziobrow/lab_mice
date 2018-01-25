@@ -56,21 +56,22 @@ attr_reader :mouse
   end
 
   def display_harvest_date
-    mouse.harvest.date_of_harvest.strftime('%m/%d/%Y')
+    return "N/A" if !mouse.harvested? || mouse.harvest == nil || mouse.harvest.date_of_harvest ==  nil
+    return mouse.harvest.date_of_harvest.strftime('%m/%d/%Y')
   end
 
   def display_harvest_weight
-    return "N/A" if mouse.harvest.weight_in_g == nil
+    return "N/A" if !mouse.harvested? || mouse.harvest ==  nil || mouse.harvest.weight_in_g == nil
     return mouse.harvest.weight_in_g
   end
 
   def display_harvest_protein
-    return "N/A" if mouse.harvest.protein_ug_per_ml == nil
+    return "N/A" if !mouse.harvested? || mouse.harvest ==  nil || mouse.harvest.protein_ug_per_ml == nil
     return mouse.harvest.protein_ug_per_ml
   end
 
   def display_harvest_brain_temp
-    return "N/A" if mouse.harvest.brain_temp == nil
+    return "N/A" if !mouse.harvested? || mouse.harvest ==  nil || mouse.harvest.brain_temp == nil
     return mouse.harvest.brain_temp
   end
 

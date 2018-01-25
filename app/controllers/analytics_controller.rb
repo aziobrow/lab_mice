@@ -5,7 +5,10 @@ class AnalyticsController < ApplicationController
 
   def show
     @chart_type = params["chart_type"]
-    @data = Mouse.group(params["attribute"]).count
+    @mice_one = Mouse.where(diet: 'control').limit(50)
+    @mice_two = Mouse.where(diet: 'rapamycin').limit(50)
+
+
   end
 
   private

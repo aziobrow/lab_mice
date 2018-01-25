@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     delete '/tracked_subjects/:lab_id' => :destroy, as: 'tracked_subject'
   end
 
+
   controller :dashboard do
     get '/dashboard' => :index, as: 'user_dashboard'
   end
@@ -48,8 +49,6 @@ Rails.application.routes.draw do
 
   resources :protocols, only: [:index]
 
-  get '/:slug', to: 'protocols#show', as: 'protocol'
-
   resources :mice, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :notes, only: [:create, :destroy]
@@ -60,4 +59,5 @@ Rails.application.routes.draw do
 
   delete '/saved_notes/:note_id', to: 'saved_notes#destroy', as: 'saved_note'
 
+  get '/:slug', to: 'protocols#show', as: 'protocol'
 end

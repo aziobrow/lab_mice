@@ -25,7 +25,11 @@ class MiceController < ApplicationController
   end
 
   def index
-    @mice = Mouse.all
+    if params[:retired]
+      @mice = Mouse.where(active_status: 'retired')
+    else
+      @mice = Mouse.all
+    end
   end
 
   def show

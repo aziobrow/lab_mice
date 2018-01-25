@@ -6,7 +6,7 @@
         <button class="dropbtn" id="manageMenuBtn">Manage Mice</button>
         <div class="dropdown-content" id="manageMenu">
           <%= link_to "All Mice", mice_path %>
-          <%= link_to "Retired Mice", user_path(current_user) %></a>
+          <%= link_to "Retired Mice", mice_path(retired: "true") %></a>
           <%= link_to "Add a Mouse", new_mouse_path %></a>
         </div>
       </div>
@@ -18,8 +18,7 @@
           <% current_user.protocols.each do |protocol| %>
             <%= link_to "#{protocol.name}", protocol_path(slug: protocol.slug) %></a>
           <% end %>
-          <%= link_to "All My Mice", protocols_path %></a>
-          <%= link_to "Add a Mouse", new_mouse_path %></a>
+          <%= link_to "Mice Across Protocols", protocols_path %></a>
         </div>
       </div>
     </div>
@@ -45,8 +44,8 @@
           <button class="dropbtn" id="profileMenuBtn"><%= current_user.first_name %> <%= current_user.last_name %></button>
           <div class="dropdown-content" id="profileMenu">
             <%= link_to "My Dashboard", user_dashboard_path %>
+            <%= link_to "My Notes", saved_notes_path %></a>
             <%= link_to "My Profile", user_path(current_user) %></a>
-            <%= link_to "My Notes", saved_notes_path, method: :get %></a>
             <%= link_to "Logout", logout_path, method: :delete %>
           </div>
         </div>

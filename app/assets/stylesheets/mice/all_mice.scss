@@ -97,6 +97,26 @@
   }
 }
 
+.retired-mouse {
+  list-style-type: none;
+  height: 129px;
+  width: 129px;
+  border: solid 2px $roof_terracotta;
+  margin: 7px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: $oslo_gray;
+  font-family: $roboto;
+  opacity: 0.5;
+
+  a {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
 .protocol-number  {
   padding: 2px 4px;
   font-size: 12px;

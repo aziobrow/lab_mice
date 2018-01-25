@@ -1,5 +1,5 @@
 class SavedNotesController < ApplicationController
-  before_action :set_note
+  before_action :set_note, except: [:index]
 
   def index
     @user = current_user
