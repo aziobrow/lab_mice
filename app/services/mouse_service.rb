@@ -13,6 +13,10 @@ class MouseService
       req.url "/api/v1/mice/find"
       req.params["diet"] = "#{filter[:diet]}"
       req.params["ploidy"] = "#{filter[:ploidy]}"
+      req.params["color"] = "#{filter[:color]}"
+      req.params["sex"] = "#{filter[:sex]}"
+      req.params["harvest_status"] = "#{filter[:harvest_status]}"
+      req.params["treatment_status"] = "#{filter[:treatment_status]}"
     end
     JSON.parse(response.body, symbolize_names: true)
   end

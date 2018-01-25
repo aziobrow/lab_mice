@@ -19,7 +19,8 @@ class Mouse < ApplicationRecord
   scope :color, -> color { where(color: color) }
   scope :sex, -> gender { where(sex: gender) }
   scope :group_number, -> group_no { where(group_number: group_no) }
-  scope :status, -> status { where(status: status) }
+  scope :treatment_status, -> status { where(treatment_status: status) }
+  scope :harvest_status, -> status { where(harvest_status: status) }
   scope :id, -> mouse_id { where(lab_id: mouse_id) }
   scope :protein_ug_per_ml, lambda { |start_level:| where("protein_ug_per_ml > ? AND protein_ug_per_ml < ?", start_level, start_level + 1) }
   scope :harvest_brain_temp, lambda { |harvest_brain_temp:| where("harvest_brain_temp > ? AND harvest_brain_temp < ?", harvest_brain_temp, harvest_brain_temp + 1) }

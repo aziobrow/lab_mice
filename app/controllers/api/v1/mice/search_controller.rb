@@ -7,7 +7,8 @@ class Api::V1::Mice::SearchController < ActionController::API
   has_scope :color
   has_scope :sex
   has_scope :group_number
-  has_scope :status
+  has_scope :treatment_status
+  has_scope :harvest_status
   has_scope :id
 
   has_scope :protein_ug_per_ml do |controller, scope, value|

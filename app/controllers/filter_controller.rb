@@ -11,6 +11,6 @@ class FilterController < ApplicationController
 
 private
   def query_params
-    params.permit(:diet, :ploidy, :user)
+    params.permit(:diet, :ploidy, :user, :color, :sex, :harvest_status, :treatment_status)
   end
 end

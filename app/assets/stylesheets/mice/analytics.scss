@@ -1,34 +1,25 @@
-.chart-header-container  {
+.chart-container  {
+  height: 100%;
+  background-color: $cararra;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+.chart-form  {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin: 10px;
-  margin-top: 50px;
   font-family: $roboto_slab;
 
-  #group-one-header  {
-    position: relative;
-    left: 34px;
-    z-index: -1;
+  label  {
+    margin-right: 10px;
   }
 
-  #group-two-header {
-    position: relative;
-    left: 117px;
-    z-index: -1;
+  select {
+    margin-right: 15px;
   }
 
-  #data-header  {
-    position: relative;
-    left: 135px;
-    z-index: -1;
-  }
-
-  #chart-type-header  {
-    position: relative;
-    left: 62px;
-    z-index: -1;
-  }
 }
 
 .chart-selection-container  {

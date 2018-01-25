@@ -2,14 +2,30 @@
 
 <div class="filter-selections">
   <%= form_tag :filter, method: :get do %>
-  <%= check_box_tag 'diet', 'rapamycin', false, class: 'check-opt' %>
+    <%= check_box_tag 'diet', 'rapamycin', false, class: 'check-opt' %>
     <%= label_tag 'Rapamycin', nil, class: 'check-label' %>
     <%= check_box_tag 'diet', 'control', false, class: 'check-opt' %>
     <%= label_tag 'Control', nil, class: 'check-label' %>
     <%= check_box_tag 'ploidy', 'trisomic', false, class: 'check-opt' %>
     <%= label_tag 'Trisomic', nil, class: 'check-label' %>
     <%= check_box_tag 'ploidy', 'disomic', false, class: 'check-opt' %>
-    <%= label_tag 'Disomic', nil, class: 'check-label' %></br>
+    <%= label_tag 'Disomic', nil, class: 'check-label' %>
+    <%= check_box_tag 'color', 'black', false, class: 'check-opt' %>
+    <%= label_tag 'Black', nil, class: 'check-label' %>
+    <%= check_box_tag 'color', 'agouti', false, class: 'check-opt' %>
+    <%= label_tag 'Agouti', nil, class: 'check-label' %>
+    <%= check_box_tag 'gender', 'female', false, class: 'check-opt' %>
+    <%= label_tag 'Female', nil, class: 'check-label' %>
+    <%= check_box_tag 'sex', 'male', false, class: 'check-opt' %>
+    <%= label_tag 'Male', nil, class: 'check-label' %>
+    <%= check_box_tag 'treatment_status', 'on', false, class: 'check-opt' %>
+    <%= label_tag 'On Treatment', nil, class: 'check-label' %>
+    <%= check_box_tag 'treatment_status', 'off', false, class: 'check-opt' %>
+    <%= label_tag 'Off Treatment', nil, class: 'check-label' %>
+    <%= check_box_tag 'harvest_status', 'live', false, class: 'check-opt' %>
+    <%= label_tag 'Live', nil, class: 'check-label' %>
+    <%= check_box_tag 'harvest_status', 'harvested', false, class: 'check-opt' %>
+    <%= label_tag 'Harvested', nil, class: 'check-label' %></br>
     <%= submit_tag "Filter Mice", id: 'filter-button', class: "card-button" %>
   <% end %>
 </div>

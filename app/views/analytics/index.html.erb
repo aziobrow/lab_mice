@@ -1,6 +1,11 @@
-<%= form_tag(chart_path, method: :get) do %>
-  <%= select_tag 'attribute', options_for_select(Mouse.attribute_names)%>
-  <%= select_tag 'chart_type', options_for_select([["bar", "bar_chart"], ["line", "line_chart"], ["column", "column_chart"], ["pie", "pie_chart"], ["area", "area_chart"]])%>
-  <%= select_tag 'metric', options_for_select([['count', 'count'],["date of harvest", "date_of_harvest"], ["weight", "weight_in_g"], ["protein", "protein_ug_per_ml"], ["brain temperature read", "brain_temp"]]) %>
-  <%= submit_tag("Create Chart", class: 'card-button') %>
-<% end %>
+<div class='chart-container'>
+  <%= form_tag(chart_path, class: 'chart-form', method: :get) do %>
+    <%= label_tag 'Group Mice By:' %>
+    <%= select_tag 'attribute', options_for_select(Mouse.attribute_names)%>
+    <%= label_tag 'Chart Type:' %>
+    <%= select_tag 'chart_type', options_for_select([["bar", "bar_chart"], ["line", "line_chart"], ["column", "column_chart"], ["pie", "pie_chart"], ["area", "area_chart"]])%>
+    <%= label_tag 'Metric To Graph:' %>
+    <%= select_tag 'metric', options_for_select([['count', 'count'],["date of harvest", "date_of_harvest"], ["weight", "weight_in_g"], ["protein", "protein_ug_per_ml"], ["brain temperature read", "brain_temp"]]) %>
+    <%= submit_tag("Create Chart", class: 'card-button') %>
+  <% end %>
+</div>
