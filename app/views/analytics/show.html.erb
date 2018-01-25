@@ -2,5 +2,5 @@
   <%= line_chart [
     {name: "Control", data: Hash[@mice_one.collect{|mouse| [mouse.lab_id, mouse.harvest.weight_in_g]}]},
     {name: "Rapamycin", data: Hash[@mice_two.collect{|mouse| [mouse.lab_id, mouse.harvest.weight_in_g]}]}
-  ], width: "1200px", height: "500px", colors: ["#A11C2E", "#999"], xtitle: "Mouse Id", ytitle: "Weight (g)", min: 20, max: 55, title: 'Mice by Weight' %>
+  ], width: "1200px", height: "500px", colors: ["#A11C2E", "#999"], xtitle: "Mouse Id", ytitle: "Weight (g)", min: 20, max: 55, title: 'Mice by Weight', download: true %>
 </div>
