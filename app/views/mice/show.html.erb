@@ -1,6 +1,6 @@
 <h1 class='card-title'><%= @presenter.display_lab_id %></br>
   <% if @presenter.mouse_is_favorite?(current_user) %>
-  <%= link_to image_tag('outline_star.svg', size: "43x43", class: 'favorited'), tracked_subject_path(lab_id: @presenter.mouse.lab_id), method: :delete, class: 'unfavorite-link' %>
+  <%= link_to image_tag('outline_star.png', size: "43x43", class: 'favorited'), tracked_subject_path(lab_id: @presenter.mouse.lab_id), method: :delete, class: 'unfavorite-link' %>
   <% else %>
   <%= link_to image_tag('unfavorite_star.png', size: "40x40", class: 'unfavorited'), tracked_subjects_path(lab_id: @presenter.mouse.lab_id), method: :post, class: 'favorite-link' %>
   <% end %>

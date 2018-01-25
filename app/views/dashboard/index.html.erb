@@ -34,7 +34,7 @@
   <% @user.tracked_subjects.each do |subject| %>
     <% if subject.user == current_user %>
     <div class='favorite-mouse'>
-      <div class='star-icon'><%= link_to image_tag('outline_star.svg', size: "25x25", class: "favorite_icon"), tracked_subject_path(lab_id: subject.mouse.lab_id), method: :delete, class: 'unfavorite-link' %></div>
+      <div class='star-icon'><%= link_to image_tag('outline_star.png', size: "25x25", class: "favorite_icon"), tracked_subject_path(lab_id: subject.mouse.lab_id), method: :delete, class: 'unfavorite-link' %></div>
 
       <div class='index-mouse-header'>
         <%= link_to "#{subject.mouse.lab_id}", mouse_path(subject.mouse.lab_id) %>

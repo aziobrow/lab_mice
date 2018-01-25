@@ -34,7 +34,7 @@
   <% @mice.each do |mouse| %>
     <% if mouse.users.include?(current_user) %>
       <div class='favorite-mouse'>
-        <div class='star-icon'><%= link_to image_tag('outline_star.svg', size: "25x25", class: "favorite_icon"), tracked_subject_path(lab_id: mouse.lab_id), method: :delete, class: 'unfavorite-link' %></div>
+        <div class='star-icon'><%= link_to image_tag('outline_star.png', size: "25x25", class: "favorite_icon"), tracked_subject_path(lab_id: mouse.lab_id), method: :delete, class: 'unfavorite-link' %></div>
         <div class='index-mouse-header'>
           <%= link_to "#{mouse.lab_id}", mouse_path(mouse.lab_id) %>
           <div class='protocol-number'><%= mouse.protocol.name %></div>
