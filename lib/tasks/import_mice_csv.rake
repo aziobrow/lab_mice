@@ -20,4 +20,5 @@ namespace :import do
     reader = HarvestCSVReader.new('app/data/mouse_attributes.csv')
     reader.csv_to_harvest
   end
+
 end

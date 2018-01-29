@@ -80,17 +80,6 @@ ActiveRecord::Schema.define(version: 20180124043128) do
     t.string "slug"
   end
 
-  create_table "read_marks", id: :serial, force: :cascade do |t|
-    t.string "readable_type"
-    t.integer "readable_id"
-    t.string "reader_type"
-    t.integer "reader_id"
-    t.datetime "timestamp"
-    t.index ["readable_type", "readable_id"], name: "index_read_marks_on_readable_type_and_readable_id"
-    t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
-    t.index ["reader_type", "reader_id"], name: "index_read_marks_on_reader_type_and_reader_id"
-  end
-
   create_table "saved_notes", force: :cascade do |t|
     t.bigint "note_id"
     t.bigint "user_id"
