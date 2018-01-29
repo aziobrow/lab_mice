@@ -3,7 +3,7 @@ class MouseService
 
   def initialize(filter = {})
     @filter = filter
-    @conn = Faraday.new(url: 'http://localhost:8080') do |faraday|
+    @conn = Faraday.new(url: 'https://lit-meadow-75806.herokuapp.com') do |faraday|
       faraday.adapter Faraday.default_adapter
     end
   end
